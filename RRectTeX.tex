@@ -335,7 +335,79 @@
             \begin{equation}
                 OB_1 \Leftrightarrow OB = 5
             \end{equation}
-            \paragraph{Calculating $D$}
+            \paragraph{Calculating $\widehat{AOB}$} $\widehat{AOB}$ is important as it forms part of the composite angle $\widehat{AOB_1}$, which is the angle that will be used to calculate the coordinates.
+            \begin{align*}
+                \tan{\widehat{AOB}} &= \frac{opposite}{adjacent} \\
+                \tan{\widehat{AOB}} &= \frac{3}{4} \\
+                \therefore \widehat{AOB} &= \tan^{-1}{\left(\frac{3}{4}\right)}
+            \end{align*}
+            \paragraph{Calculating $\widehat{AOB_1}$} $AOB_1$ is calculated by the $20\degree$ rotation angle plus the angle formed by $OB_1$ and $OA_1$ which is equivalent to that of $\widehat{AOB}$:
+            \begin{equation*}
+                \widehat{AOB_1} = 20\degree + \tan^{-1}{\left(\frac{3}{4}\right)}
+            \end{equation*}
+            \paragraph{Calculating $X_3$} $X_3$ can then be calculated in the fashion as $A_1$. The radius is $OB$, which is 5 units. The angle is $AOB_1$, which equals to $\tan^{-1}{\left(\frac{3}{4}\right)}$:
+            \begin{align*}
+                X_3 &= 5\cos{(20\degree + \tan^{-1}{\left(\frac{3}{4}\right))}}
+            \end{align*}
+            Using the composite angle identity for cosine [see \textbf{(5)}], $X_3$ becomes:
+            \begin{align*}
+                X_3 &= 5\cos{(20\degree + \tan^{-1}{\left(\frac{3}{4}\right)})} \\
+                &= 5\left[\cos{20\degree}\cos{\tan^{-1}{\left(\frac{3}{4}\right)}} - \sin{20\degree}\sin{\tan^{-1}{\left(\frac{3}{4}\right)}}\right]
+            \end{align*}
+            $\cos{\tan^{-1}{\left(\frac{3}{4}\right)}}$ and $\sin{\tan^{-1}{\left(\frac{3}{4}\right)}}$ can be calculated in the following way:
+            \begin{align*}
+                \mathrm{For} \cos{\left( \tan^{-1}{\left(\frac{3}{4}\right)}\right) } \\
+                \mathrm{Let \ } \theta &= \tan^{-1}{\left(\frac{3}{4}\right)} \\
+                \Rightarrow \tan{\theta} &= \frac{3}{4}
+            \end{align*}
+            Since $\tan{\theta} = \frac{opposite}{adjacent}$, $opposite = 3$ and $adjacent = 4$. Therefore, $hypotenuse = \sqrt{3^2 + 4^2} = 5$. And thus,
+            \begin{align*}
+                \because \tan{\theta} &= \frac{3}{4} \\
+                \Rightarrow \cos{\theta} &= \frac{adjacent}{hypotenuse} = \frac{4}{5} \\
+                \therefore \cos{\tan^{-1}{\left(\frac{3}{4}\right)}} &= \frac{4}{5} \\
+                \Rightarrow \sin{\theta} &= \frac{opposite}{hypotenuse} = \frac{3}{5} \\
+                \therefore \sin{\tan^{-1}{\left(\frac{3}{4}\right)}} &= \frac{3}{5}
+            \end{align*}
+            Substituting these values back to the composite angle calculation:
+            \begin{align*}
+                X_3 &= 5\left[\cos{20\degree}\cos{\tan^{-1}{\left(\frac{3}{4}\right)}} - \sin{20\degree}\sin{\tan^{-1}{\left(\frac{3}{4}\right)}}\right] \\
+                &= 5\left[\cos{20\degree}\times \left( \frac{4}{5}\right)  - \sin{20\degree} \times \left( \frac{3}{5}\right)   \right] \\
+                &= 4\cos{20\degree} - 3\sin{20\degree}
+            \end{align*}
+            Which is consistent with the $X_3$ value obtained via the Graphical method.
+            % -- %
+            \paragraph{Calculating $Y_3$} $Y_3$ can then be calculated in the fashion as $A_1$. The radius is $OB$, which is 5 units. The angle is $AOB_1$, which equals to $\tan^{-1}{\left(\frac{3}{4}\right)}$:
+            \begin{align*}
+            X_3 &= 5\sin{(20\degree + \tan^{-1}{\left(\frac{3}{4}\right))}}
+            \end{align*}
+            Using the composite angle identity for cosine [see \textbf{(5)}], $X_3$ becomes:
+            \begin{align*}
+            X_3 &= 5\sin{(20\degree + \tan^{-1}{\left(\frac{3}{4}\right)})} \\
+            &= 5\left[\sin{20\degree}\cos{\tan^{-1}{\left(\frac{3}{4}\right)}} + \cos{20\degree}\sin{\tan^{-1}{\left(\frac{3}{4}\right)}}\right]
+            \end{align*}
+            $\sin{\tan^{-1}{\left(\frac{3}{4}\right)}}$ and $\cos{\tan^{-1}{\left(\frac{3}{4}\right)}}$ can be calculated in the following way:
+            \begin{align*}
+            \mathrm{For} \sin{\left( \tan^{-1}{\left(\frac{3}{4}\right)}\right) } \\
+            \mathrm{Let \ } \theta &= \tan^{-1}{\left(\frac{3}{4}\right)} \\
+            \Rightarrow \tan{\theta} &= \frac{3}{4}
+            \end{align*}
+            Since $\tan{\theta} = \frac{opposite}{adjacent}$, $opposite = 3$ and $adjacent = 4$. Therefore, $hypotenuse = \sqrt{3^2 + 4^2} = 5$. And thus,
+            \begin{align*}
+            \because \tan{\theta} &= \frac{3}{4} \\
+            \Rightarrow \sin{\theta} &= \frac{opposite}{hypotenuse} = \frac{4}{5} \\
+            \therefore \sin{\tan^{-1}{\left(\frac{3}{4}\right)}} &= \frac{3}{5} \\
+            \Rightarrow \cos{\theta} &= \frac{adjacent}{hypotenuse} = \frac{3}{5} \\
+            \therefore \cos{\tan^{-1}{\left(\frac{3}{4}\right)}} &= \frac{4}{5}
+            \end{align*}
+            Substituting these values back to the composite angle calculation:
+            \begin{align*}
+            X_3 &= 5\left[\sin{20\degree}\cos{\tan^{-1}{\left(\frac{3}{4}\right)}} + \cos{20\degree}\sin{\tan^{-1}{\left(\frac{3}{4}\right)}}\right] \\
+            &= 5\left[\sin{20\degree}\times \left( \frac{4}{5}\right)  + \cos{20\degree} \times \left( \frac{3}{5}\right)   \right] \\
+            &= 4\sin{20\degree} + 3\cos{20\degree} \\
+            &= 3\cos{20\degree} + 4\sin{20\degree}
+            \end{align*}
+            Which is also consistent with the $Y_3$ value obtained via the Graphical method.
+            
     \newpage
     
 \end{document}
