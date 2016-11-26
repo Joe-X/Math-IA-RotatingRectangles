@@ -1,0 +1,132 @@
+% ======================================================================== %
+%   Rotating Rectangle Task (Math HL Practice IA Project)
+%       Joe Xu
+%       Y12D
+%       2016-11-26
+%       Ms. Many
+% ======================================================================== %
+
+\documentclass{article}
+
+% Title Information
+\title  {Rotating Rectangles Task}
+\date   {November 20, 2016}
+\author {Joe Xu}
+
+
+% Required Packages %
+
+% For Symbols
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{gensymb}
+% For Diagrams
+\usepackage{graphicx}
+% For Bibliography
+\usepackage[backend=bibtex,style=verbose-trad2,maxbibnames=99]{biblatex}
+\bibliography{RRect}
+
+
+% ------------------------------------------------------------------------ %
+% Document Structure                                                       %
+% ------------------------------------------------------------------------ %
+%  Title
+%  Abstract 
+%  Table of Contents
+%  Prerequisites
+%  Approaching The Problem
+%  Calculating Coordinates of a 20-degrees-rotated Rectangle
+%  Conclusion 1
+%  Futher Investigation
+%  Appendix
+%  Works Cited
+% ------------------------------------------------------------------------ %
+
+
+% Document
+\begin{document}
+    \pagenumbering{gobble}
+    \maketitle
+    \newpage
+    
+    \section*{Abstract}
+        This paper is created to answer the questions given on the "Rotating Rectangles" task sheet. The questions are focused on  Trigonometry and Geometry.
+        \newline\newline
+        This paper is structured in accordance to the task sheet. That is, the first part of the paper focuses on calculating coordinates of an image of a rectangle rotated by given degrees. The second part of this paper focuses on the more general nature of the trigonometric functions sine and cosine.
+        \newline\newline
+        The approach to calculate the coordinates of the image of a rectangle rotated by given degrees (20\degree \ used for illustration of the question) is to use a combination of trigonometry (sine, cosine and tangent) properties and identities, as well as graphical methods such as calculating distance between two points on a 2D plane.
+        \newline\newline
+        GeoGebra\autocite{GEOGEBRA:1} is used for the diagrams, while TeXstudio\autocite{TEXSTUDIO:1} is used to produce this formatted paper.
+    \newpage
+    
+    \tableofcontents
+    \newpage
+    
+    \pagenumbering{arabic}
+        
+    \section{Prerequisites}
+        \subsection{Trigonometric Properties and Identities}
+        Trigonometric properties such as the Pythagorean theorem and trigonometric identities such as the Pythagorean identities and compound angle identities are utilized throughout this paper for proofs and for calculations.
+        \paragraph{Trigonometric Properties} These are basic properties involving right-angled triangles as well as the unit circle.
+            \subparagraph{Labels on a Right-Angled Triangle} These labels will be used by the following properties and identities.
+            \begin{figure}[h!]
+                \includegraphics[width=\linewidth]{RRectPreq1.png}
+                \caption{Labeled Right-Angled Triangle}
+                \label{fig:tri1}
+            \end{figure}\newline
+            Figure \ref{fig:tri1} shows a labeled triangle, with vertices $A$, $B$ and $C$, and edges $a$, $b$, and $c$. Edge $a$ is the adjacent leg of the right-angle triangle; it forms the angle $\theta$ and a right-angle with edges $b$ and $c$ respectively. Edge $a$ is the opposite leg of the triangle; it is the edge opposite to the angle $\theta$. Edge $c$ is the hypotenuse of the triangle; it is the longest edge of the triangle.
+            \subparagraph{Pythagorean Theorem}\label{PYTH:1} The Pythagorean theorem states that for a right-angled Triangle (see Figure \ref{fig:tri1}), the square of the adjacent leg plus the opposite leg equals to the square of the hypotenuse.
+            \begin{align*}
+                adjacent^2 + opposite^2 &= hypotenuse^2 \\
+                a^2 + b^2 &= c^2
+            \end{align*}
+            \subparagraph{Basic Trigonometric Functions}\label{TRIG:1} Sine, Cosine and Tangent, as well as Co-secant(csc) and Secant(sec). The angle $\theta$ is used here for the right-angled Triangle, but these functions can take bigger or smaller angles as well (with exceptions for tangent).
+            \begin{align*}
+                \cos{\theta} &= \frac{adjacent}{hypotenuse} \left(= \frac{a}{c}\right) \\
+                \sin{\theta} &= \frac{opposite}{hypotenuse} \left(= \frac{b}{c}\right) \\
+                \tan{\theta} &= \frac{\sin{\theta}}{\cos{\theta}} = \frac{opposite}{adjacent} \left(= \frac{b}{a}\right) \\
+                \sec{\theta} &= \frac{1}{\cos{\theta}} \\
+                \csc{\theta} &= \frac{1}{\sin{\theta}} \\
+            \end{align*}
+            \subparagraph{The Unit Circle}\label{UC:1} The unit circle can help to give the exact values of special angles, 30\degree, 45\degree, 65\degree, etc. The radius of the circle is one ($r=1$). The radius of the circle is the hypotenuse, which can form a right-angled triangle with the x-axis, by the vertical extension from the intersection of the radius with the circle's circumference to the x-axis.
+            \begin{figure}[h!]
+                \includegraphics[width=\linewidth]{unit-circle-degrees.png}
+                \caption{The Unit Circle}
+                \label{fig:uc1}
+            \end{figure}\newpage
+            This diagram is from OnlineMathLearning\autocite{UNIT_CIRCLE:1}.
+        \paragraph{Trigonometric Identities} These include the Pythagorean identities and the compound angle identities.
+            \subparagraph{Pythagorean Identities}
+            \begin{align}
+                \cos{\theta}^2 + \sin{\theta}^2 &\equiv 1 \\
+                1 + \tan{\theta}^2 &\equiv \sec{\theta} \\
+                \cot{\theta} + 1 &\equiv \csc{\theta}
+            \end{align}
+            \subparagraph{Compound Angle Identities}
+            \begin{align}
+                \sin{(\alpha \pm \beta)} &= \sin{\alpha}\cos{\beta} \pm \cos{\alpha}\sin{\beta} \\
+                \cos{(\alpha \pm \beta)} &= \cos{\alpha}\cos{\beta} \mp \sin{\alpha}\sin{\beta}
+            \end{align}
+            %%%%%%%%%%
+            \newpage
+        \subsection{Graphical Properties and Calculations} This includes the distance formula.
+        \paragraph{Calculating Distance Between Two Points} This formula calculates the distance (length) between two points, $A$ and $B$ (or the length of segment, $AB$). Let point $A$ and $B$ be $(X_1, Y_1)$ and $(X_2, Y_2)$ respectively, where X and Y denotes the coordinates of $A$ and $B$.
+        \begin{equation}
+            AB_{\mathrm{DISTANCE}} = \sqrt{(X_2 - X_1)^2 + (Y_2 - Y_1)^2}
+        \end{equation}
+        
+    %%%%%%%%
+    \newpage
+    \section{Approaching The Problem} As per the questions from the task sheet, I am to calculate the coordinates of the image of a rectangle rotated by given degrees. There exists multiple methods to calculate the coordinates, but to get results as accurate and as exact as possible, I have decided to use trigonometrical functions in conjunction with the unit circle (modifying the radius) to calculate the coordinates. To do so, the investigation is based on a case study of the image of a rectangle $OABC$ rotated $20\degree$ from the x-axis, anti-clockwise, about the origin, $O$.
+    \begin{figure}[h!]
+        \includegraphics[width=\linewidth]{RRect1.png}
+        \caption{Image of Rectangle OABC Rotated 20$\degree$}
+        \label{fig:rrect1}
+    \end{figure} \newline
+    Figure \ref{fig:rrect1} shows the rectangle $\mathrm{OABC}$ rotated $20\degree$ about the origin $O$, giving the image $\mathrm{OA_1B_1C_1}$.
+    \\\\
+    
+    
+    \newpage
+    
+\end{document}
