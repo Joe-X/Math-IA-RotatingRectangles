@@ -127,19 +127,215 @@
     \\\\
     I will calculate the coordinates of the image in terms of sines and cosines in order to deduce general expressions for calculating the coordinates.
     \newpage
-        \subsection{Calculating $A_1$} In order to calculate $A_1$, I isolated the segment $\mathrm{OA_1}$ from the image to form a right-angled triangle with the x-axis. This is demonstrated in the following diagrams:
+        \subsection{Calculating $A_1$} Let $A_1(X_1, Y_1)$. In order to calculate $A_1$, I isolated the segment $\mathrm{OA_1}$ from the image to form a right-angled triangle with the x-axis. This is demonstrated in the following diagrams:
         \begin{figure}[h!]
             \includegraphics[width=\linewidth]{RRect2.png}
             \caption{Right-angled Triangle Formed By $OA_1$}
             \label{fig:rrect2}
         \end{figure} \newline
-        Then, I treated the hypotenuse (the length of the rectangle $OA_1 = 4$) as the radius of a unit circle multiplied by the length $OA_1$, i.e. a circle with radius $r = 4$.
+        Then, I treated the hypotenuse (the length of the rectangle $OA_1 = 4$) as the radius of a unit circle multiplied by the length $OA_1$, i.e. a circle with radius $r = 4$. \newpage
         \begin{figure}[h!]
             \includegraphics[width=\linewidth]{RRect3.png}
             \caption{Right-angled Triangle Formed By $OA_1$}
             \label{fig:rrect3}
-        \end{figure} \\
-        
+        \end{figure} 
+        Recall that the height (y-value) of a point on the circumference of a unit circle equals to $\sin{\alpha}$; the width (x-value) of a point on the circumference of a unit circle equals to $\cos{\alpha}$. This is because (a is adjacent side, b is opposite, r is radius, also the hypotenuse):
+        \begin{align*}
+            \cos{\alpha} &= \frac{adjacent}{hypotenuse} \\
+            \cos{\alpha} &= \frac{a}{r} \\
+            adjacent &\Rightarrow a = r\cos{\alpha} = \cos{\alpha} \\
+            \therefore x = a &= \cos{\alpha} \\
+            % - - - - - - - - - - - - - - - - - - - - - - - - - %
+            \sin{\alpha} &= \frac{opposite}{hypotenuse} \\
+            \sin{\alpha} &= \frac{b}{r} \\
+            opposite &\Rightarrow a = r\sin{\alpha} = \sin{\alpha} \\
+            \therefore y = b &= \sin{\alpha}
+        \end{align*} \\
+        In the case of the image of the rectangle, the r value is no longer 1, but instead the length (or width for other coordinates) of the rectangle. For $A_1$, $r = length = 4$. As such, the values for $X_1$ and $Y_1$ can be obtained as follows:
+        \begin{align*}
+            X_1 &= r\cos{\alpha} = 4\cos{20\degree} \\
+            Y_1 &= r\sin{\alpha} = 4\sin{20\degree}
+        \end{align*} \\
+        Therefore, $A_1$ have the coordinates:
+        \begin{equation}
+            A_1(4\cos{20\degree}, 4\sin{20\degree})
+        \end{equation}
+        \subsection{Calculating $C_1$} $C_1$ can be calculated using the same method as $A_1$, just that the angle and radius is different. Let $C_1(X_2, Y_2)$.
+        \begin{figure}[h!]
+            \includegraphics[width=\linewidth]{RRect4.png}
+            \caption{Right-angled Triangle Formed By $OC_1$}
+            \label{fig:rrect4}
+        \end{figure}  \newpage
+        In Figure \ref{fig:rrect4}, the radius, i.e. the hypotenuse of the triangle is 3 units ($OC_1$). The angle $\alpha = 90\degree + 20\degree = 110\degree$. Using the expressions found previously, $X_2$ and $Y_3$ can be calculated as follows:
+        \begin{align*}
+            X_2 &= r\cos{\alpha} \\
+            &= 3\cos{(90\degree + 20\degree)}
+        \end{align*} \\
+        Notice the presence of two angles here, $90\degree$ and $20\degree$. $X_2$ can thus be calculated using the composite angle identity for cosine (see equation \textbf{(5)}):
+        \begin{align*}
+            X_2 &= 3\cos{(90\degree + 20\degree)} \\
+            &= 3[\cos{90\degree}\cos{20\degree} - \sin{90\degree}\sin{20\degree}] \\
+            &= 3[0\times\cos{20\degree} - 1\times\sin{20\degree}] \\
+            &= 3[-\sin{20\degree}] \\
+            &= -3\sin{20\degree}
+        \end{align*}\\
+        $Y_2$ can be calculated in a similar fashion:
+        \begin{align*}
+            Y_2 &= r\sin{\alpha} \\
+            &= 3\sin{(90\degree + 20\degree)} \\
+            &= 3[\sin{90\degree}\cos{20\degree} + \cos{90\degree}\sin{20\degree}] \\
+            &= 3[1\times\cos{20\degree} + 0\times\sin{20\degree}] \\
+            &= 3[\cos{20\degree}] \\
+            &= 3\cos{20\degree}
+        \end{align*} \\
+        Therefore, $C_1$ have the coordinates:
+        \begin{equation}
+            C_1(-3\sin{20\degree}, 3\cos{20\degree})
+        \end{equation}
+        \subsection{Calculating $B_1$} Let $B_1(X_3, Y_3)$. $B_1$ can be obtained in two ways: $B_1$ can be obtained via the solutions to two simultaneous equations from the distances $C_1B_1$ and $A_1B_1$ (graphical method), or, obtained by finding $OA_1$ and angle $\widehat{AOB}$ (trigonometrical method).
+        \subsubsection{Calculating $B_1$ (Graphical Method)} The distance $C_1B_1$ is equivalent to the length of the rectangle [4 units], and the distance $A_1B_1$ is equivalent to the width of the rectangle [3 units]. As such, two equations can be formed. In addition, $OB_1$ is also the diagonal length of the rectangle; it is also the hypotenuse of the triangle $OB_1X_3$. \\\\
+        Using the Pythagorean theorem, $OB_1$ is equivalent to:
+        \begin{align*}
+            OB_1^2 &\Leftrightarrow X_3^2 + Y_3^2 \Leftrightarrow 3^2 + 4^2 = 25 \\
+            \therefore OB_1 &= \sqrt{25} = 5
+        \end{align*}
+            \paragraph{Equation 1} This is the distance, i.e. length of the segment $C_1B_1$, which in turn is equivalent to the length of the rectangle, 4 units. See \textbf{(8)} for the coordinates of $C_1$.
+            \begin{align*}
+                C_1B_1 = 4 &= \sqrt{(-3\sin{20\degree} - X_3)^2 + (3\cos{20\degree} - Y_3)^2} \\
+                16 &= (-3\sin{20\degree} - X_3)^2 + (3\cos{20\degree} - Y_3)^2 \\
+                16 &= 9\sin^2{20\degree} + 6X_3\sin{20\degree} + X_3^2 + 9\cos^2{20\degree} - 6Y_3\cos{20\degree} + Y_3^2
+            \end{align*}
+            Rearranging, gives:
+            \begin{align*}
+                16 &= 9\sin^2{20\degree} + 6X_3\sin{20\degree} + X_3^2 + 9\cos^2{20\degree} - 6Y_3\cos{20\degree} + Y_3^2 \\
+                16 &= 9\sin^2{20\degree} + 9\cos^2{20\degree} + X_3^2 + Y_3^2 + 6X_3\sin{20\degree} - 6Y_3\cos{20\degree} \\
+                16 &= 9[\cos^2{20\degree} + \sin^2{20\degree}] + [X_3^2 + Y_3^2] + 6X_3\sin{20\degree} - 6Y_3\cos{20\degree}
+            \end{align*}
+            Recall that $\cos^2{\theta} + \sin^2{\theta} \equiv 1$, as per the first Pythagorean identity [see \textbf{(1)}]. Also, $OB_1 = X_3^2 + Y_3^2 = 5$, as per the previous calculation for the length $OB_1$. Substituting these values in, giving:
+            \begin{align*}
+                16 &= 9 + 25 + 6X_3\sin{20\degree} - 6Y_3\cos{20\degree} \\
+                -18 &= 6X_3\sin{20\degree} - 6Y_3\cos{20\degree} \\
+                -3 &= X_3\sin{20\degree} - Y_3\cos{20\degree}
+            \end{align*}
+            And thus, the first equation is:
+            \begin{equation}
+                -3 = X_3\sin{20\degree} - Y_3\cos{20\degree}
+            \end{equation} \\\\
+            % -- %
+            \paragraph{Equation 2} This is the distance, i.e. length of the segment $A_1B_1$, which in turn is equivalent to the width of the rectangle, 4 units. See \textbf{(7)} for the coordinates of $A_1$.
+            \begin{align*}
+                A_1B_1 = 3 &= \sqrt{(4\cos{20\degree} - X_3)^2 + (4\sin{20\degree} - Y_3)^2} \\
+                9 &= (4\cos{20\degree} - X_3)^2 + (4\sin{20\degree} - Y_3)^2 \\
+                9 &= 16\cos^2{20\degree} - 8X_3\cos{20\degree} + X_3^2 + 16\sin^2{20\degree} - 8Y_3\sin{20\degree} + Y_3^2
+            \end{align*}
+            Rearranging, gives:
+            \begin{align*}
+                9 &= 16\cos^2{20\degree} - 8X_3\cos{20\degree} + X_3^2 + 16\sin^2{20\degree} - 8Y_3\sin{20\degree} + Y_3^2 \\
+                9 &= 16\cos^2{20\degree} + 16\sin^2{20\degree} + X_3^2 + Y_3^2 - 8X_3\cos{20\degree} - 8Y_3\sin{20\degree} \\
+                9 &= 16[\cos^2{20\degree} + \sin^2{20\degree}] + [X_3^2 + Y_3^2] - 8X_3\cos{20\degree} - 8Y_3\sin{20\degree} \\
+                9 &= 16 + 25 - 8X_3\cos{20\degree} - 8Y_3\sin{20\degree} \\
+                -32 &= - 8X_3\cos{20\degree} - 8Y_3\sin{20\degree} \\
+                4 &= X_3\cos{20\degree} + Y_3\sin{20\degree}
+            \end{align*}
+            And thus, the second equation is:
+            \begin{equation}
+                4 = X_3\cos{20\degree} + Y_3\sin{20\degree}
+            \end{equation}
+            % -- %
+            \paragraph{Solving for $X_3$} $X_3$ can be found by making $Y_3$ the subject of both equations \textbf{(9)} and \textbf{(10)}, and then equating them.
+            \subparagraph{Rearranging (9)} Making $Y_3$ the subject of the equation:
+            \begin{align*}
+                -3 &= X_3\sin{20\degree} - Y_3\cos{20\degree} \\
+                Y_3\cos{20\degree} &= X_3\sin{20\degree} + 3 \\
+                \therefore Y_3 &= \frac{X_3\sin{20\degree} + 3}{\cos{20\degree}}
+            \end{align*}
+            \subparagraph{Rearranging (10)} Making $Y_3$ the subject of the equation:
+            \begin{align*}
+                4 &= X_3\cos{20\degree} + Y_3\sin{20\degree} \\
+                Y_3\sin{20\degree} &= 4 - X_3\cos{20\degree} \\
+                \therefore Y_3 &= \frac{4 - X_3\cos{20\degree}}{\sin{20\degree}}
+            \end{align*}
+            \subparagraph{Equating $Y_3$ Equations} Equating the two equations where $Y_3$ is the subject can give the value for $X_3$. \\\\ 
+            Since:
+            \begin{equation*}
+                Y_3 = \frac{X_3\sin{20\degree} + 3}{\cos{20\degree}} \Leftrightarrow \frac{4 - X_3\cos{20\degree}}{\sin{20\degree}} = Y_3
+            \end{equation*}
+            Therefore:
+            \begin{align*}
+                \frac{X_3\sin{20\degree} + 3}{\cos{20\degree}} &= \frac{4 - X_3\cos{20\degree}}{\sin{20\degree}}
+            \end{align*}
+            Cross-multiplying, gives:
+            \begin{align*}
+            \frac{X_3\sin{20\degree} + 3}{\cos{20\degree}} &= \frac{4 - X_3\cos{20\degree}}{\sin{20\degree}} \\
+            \sin{20\degree}[X_3\sin{20\degree} + 3] &= \cos{20\degree}[4 - X_3\cos{20\degree}] \\
+            X_3\sin^2{20\degree} + 3\sin{20\degree} &= 4\cos{20\degree} - X_3\cos^2{20\degree} \\
+            X_3[\sin^2{20\degree} + \cos^2{20\degree}] &= 4\cos{20\degree} - 3\sin{20\degree}
+            \end{align*}
+            Notice that $\sin^2{20\degree} + \cos^2{20\degree} \equiv 1$ as according to the first Pythagorean identity [see \textbf{(1)}]. Therefore:
+            \begin{align*}
+                X_3[\sin^2{20\degree} + \cos^2{20\degree}] &= 4\cos{20\degree} - 3\sin{20\degree} \\
+                \therefore X_3 &= 4\cos{20\degree} - 3\sin{20\degree}
+            \end{align*}
+            % -- %
+            \paragraph{Solving for $Y_3$} $Y_3$ can be found by making $X_3$ the subject of both equations \textbf{(9)} and \textbf{(10)}, and then equating them.
+            \subparagraph{Rearranging (9)} Making $X_3$ the subject of the equation:
+            \begin{align*}
+            -3 &= X_3\sin{20\degree} - Y_3\cos{20\degree} \\
+            X_3\sin{20\degree} &= Y_3\cos{20\degree} - 3 \\
+            \therefore X_3 &= \frac{Y_3\cos{20\degree} - 3}{\sin{20\degree}}
+            \end{align*}
+            \subparagraph{Rearranging (10)} Making $X_3$ the subject of the equation:
+            \begin{align*}
+            4 &= X_3\cos{20\degree} + Y_3\sin{20\degree} \\
+            X_3\cos{20\degree} &= 4 - Y_3\sin{20\degree} \\
+            \therefore X_3 &= \frac{4 - Y_3\sin{20\degree}}{\cos{20\degree}}
+            \end{align*}
+            \subparagraph{Equating $X_3$ Equations} Equating the two equations where $X_3$ is the subject can give the value for $Y_3$. \\\\ 
+            Since:
+            \begin{equation*}
+                X_3 = \frac{Y_3\cos{20\degree} - 3}{\sin{20\degree}} \Leftrightarrow \frac{4 - Y_3\sin{20\degree}}{\cos{20\degree}} = X_3
+            \end{equation*}
+            Therefore:
+            \begin{equation*}
+               \frac{Y_3\cos{20\degree} - 3}{\sin{20\degree}} = \frac{4 - Y_3\sin{20\degree}}{\cos{20\degree}}
+            \end{equation*}
+            Cross-multiplying, gives:
+            \begin{align*}
+                \frac{Y_3\cos{20\degree} - 3}{\sin{20\degree}} &= \frac{4 - Y_3\sin{20\degree}}{\cos{20\degree}} \\
+                \cos{20\degree}[Y_3\cos{20\degree} - 3] &= \sin{20\degree}[4 - Y_3\sin{20\degree}] \\
+                Y_3\cos^2{20\degree} - 3\cos{20\degree} &= 4\sin{20\degree} - Y_3\sin^2{20\degree} \\
+                Y_3\cos^2{20\degree} + Y_3\sin^2{20\degree} &= 4\sin{20\degree} + 3\cos{20\degree} \\
+                Y_3[\cos^2{20\degree} + \sin^2{20\degree}] &= 4\sin{20\degree} + 3\cos{20\degree}
+            \end{align*}
+            Notice that $\cos^2{20\degree} + \sin^2{20\degree} \equiv 1$ as according to the first Pythagorean identity [see \textbf{(1)}]. Therefore:
+            \begin{align*}
+                Y_3[\cos^2{20\degree} + \sin^2{20\degree}] &= 4\sin{20\degree} + 3\cos{20\degree} \\
+                \therefore Y_3 &= 3\cos{20\degree} + 4\sin{20\degree}
+            \end{align*}
+            % -- %
+            \paragraph{Coordinates for $B_1$} The values for $X_3$ and $Y_3$ have been found, and thus $B_1$ have the coordinates:
+            \begin{equation}
+                B_1(4\cos{20\degree} - 3\sin{20\degree}, 3\cos{20\degree} + 4\sin{20\degree})
+            \end{equation} \newpage
+            % -- %
+            \subsubsection{Calculating $B_1$ (Trigonometrical Method)} $B_1$ can be calculated in the same way as $A_1$ and $C_1$.
+            \paragraph{Calculating $OB$} The length of $OB$ is required as it is the same as $OB_1$. Both are the diagonal length of the rectangle. To calculate, divide the rectangle into two equivalent triangles via $OB$. $OB$ then becomes the hypotenuse of the right-angled triangle $\vartriangle{AOB}$:
+            \begin{align*}
+                OB^2 &= OA^2 + AB^2 \\
+                OB^2 &= 4^2 + 3^2 \\
+                OB^2 &= 25 \\
+                \therefore OB &= 5
+            \end{align*}
+            \begin{figure}[h!]
+                \includegraphics[width=\linewidth]{RRect5.png}
+                \caption{Right-angled Triangle Formed By $OB$}
+                \label{fig:rrect5}
+            \end{figure} \\
+            And thus,
+            \begin{equation}
+                OB_1 \Leftrightarrow OB = 5
+            \end{equation}
+            \paragraph{Calculating $D$}
     \newpage
     
 \end{document}
