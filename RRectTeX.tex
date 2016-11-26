@@ -473,8 +473,8 @@
         \subparagraph{Expressing $r$ and $\alpha$ in terms of $a$ and $b$} $r$ and $\alpha$ can be calculated using $a$ and $b$:
         \begin{align*}
             a\sin{\theta} + b\cos{\theta} \Leftrightarrow r\sin{(\theta + \alpha)} \\
-            \mathrm{Let} a\sin{\theta} + b\cos{\theta} &= r\sin{(\theta + \alpha)} \\
-            a\sin{\theta} + b\cos{\theta} &= r[\sin\theta\cos\alpha + \cos\theta\sin\alpha]
+            \mathrm{Let \ } a\sin{\theta} + b\cos{\theta} &= r\sin{(\theta + \alpha)} \\
+            a\sin{\theta} + b\cos{\theta} &= r[\sin\theta\cos\alpha + \cos\theta\sin\alpha] \\
             a\sin{\theta} + b\cos{\theta} &= [r\cos\alpha]\sin{\theta} + [r\sin\alpha]\cos{\theta}
         \end{align*}
         Equating both sides, such that:
@@ -520,7 +520,102 @@
         As such $\alpha$ can be expressed as:
         \begin{equation}
             \alpha = \tan^{-1}{\left( \frac{b}{a}\right) }
+        \end{equation} \\\\
+        % -- %
+        Similarity, $r$ and $\alpha$ of the combined function $r\cos{\theta + \alpha}$ of $a\cos{\theta} - b\sin{\theta}$ can be given in terms of $a$ and $b$.
+        \subparagraph{Expressing $r$ and $\alpha$ in terms of $a$ and $b$} $r$ and $\alpha$ can be calculated using $a$ and $b$:
+        \begin{align*}
+        a\cos{\theta} - b\sin{\theta} \Leftrightarrow r\cos{(\theta + \alpha)} \\
+        \mathrm{Let \ } a\cos{\theta} - b\sin{\theta} &= r\cos{(\theta + \alpha)} \\
+        a\cos{\theta} - b\sin{\theta} &= r[\cos\theta\cos\alpha - \sin\theta\sin\alpha] \\
+        a\cos{\theta} - b\sin{\theta} &= [r\cos\alpha]\cos{\theta} - [r\sin\alpha]\sin{\theta}
+        \end{align*}
+        Equating both sides, such that:
+        \begin{align*}
+        a\cos{\theta} - b\sin{\theta} &\Leftrightarrow [r\cos\alpha]\cos{\theta} - [r\sin\alpha]\sin{\theta} \\
+        \therefore a &= [r\cos\alpha] \\
+        \therefore b &= [r\sin\alpha]
+        \end{align*}
+        Giving $a$ and $b$ in terms of $r$ and $\alpha$:
+        \begin{align}
+        a &= r\cos\alpha \\
+        b &= r\sin\alpha
+        \end{align}
+        Squaring a and b, giving:
+        \begin{align}
+        a^2 &= r^2\cos^2{\alpha} \\
+        b^2 &= r^2\sin^2{\alpha}
+        \end{align}
+        Adding \textbf{(16)} and \textbf{(17)}, giving:
+        \begin{align*}
+        a^2 + b^2 &= r^2\cos^2{\alpha} + r^2\sin^2{\alpha} \\
+        a^2 + b^2 &= r^2[\cos^2{\alpha} + \sin^2{\alpha}] \\
+        r^2 &= a^2 + b^2 \\
+        \therefore r &= \sqrt{a^2 + b^2}
+        \end{align*}
+        And thus giving $r$ in terms of $a$ and $b$:
+        \begin{equation}
+        r = \sqrt{a^2 + b^2}
         \end{equation}
+        $\alpha$ can be expressed via $a$ and $b$ via rearranging \textbf{(22)} and \textbf{(23)}:
+        \begin{align*}
+        a &= r\cos\alpha \\
+        &\Rightarrow \cos\alpha = \frac{a}{r} \\
+        (&\Rightarrow \cos\alpha = \frac{a}{\sqrt{a^2 + b^2}}) \\
+        b &= r\sin\alpha \\
+        &\Rightarrow \sin\alpha = \frac{b}{r} \\
+        (&\Rightarrow \sin\alpha = \frac{b}{\sqrt{a^2 + b^2}}) \\
+        \tan\alpha &= \frac{\sin\alpha}{\cos\alpha} \\
+        &\Rightarrow \tan\alpha = \frac{\frac{b}{r}}{\frac{a}{r}} \\
+        &\Rightarrow \tan\alpha = \frac{b}{a} \\
+        \therefore \alpha &= \tan^{-1}{\left( \frac{b}{a}\right) }
+        \end{align*}
+        As such $\alpha$ can be expressed as:
+        \begin{equation}
+        \alpha = \tan^{-1}{\left( \frac{b}{a}\right) }
+        \end{equation}
+        % -- %
+        \paragraph{Predicting the Amplitude, Phase Shift and Period Of Trigonometric Function Containing Both Cosine and Sine} Using the composite function found above, a function containing both sine and cosine can thus be combined into one and makes determining the amplitude, phase shift and period easier. The $r$ found above is known as the amplitude, while $\alpha$ is the phase shift.
+        \subparagraph{Example 1} $f:\theta \mapsto 3\sin{\theta} + 4\cos{\theta}$ \\\\
+        Equate $3\sin{\theta} + 4\cos{\theta}$ with $a\sin{\theta} + b\cos{\theta}$, giving:
+        \begin{align*}
+        	3\sin{\theta} + 4\cos{\theta} &\Leftrightarrow a\sin{\theta} + b\cos{\theta} \\
+        	\therefore a &= 3 \\
+        	\therefore b &= 4 \\
+        \end{align*}
+        The amplitude of the function can be calculated as:
+		\begin{align*}
+			r &= \sqrt{a^2 + b^2} \\
+			&= \sqrt{3^2 + 4^2}
+			&= 5
+		\end{align*}
+		The phase shift of the function can also be calculated as:
+		\begin{align*}
+			\alpha &= \arctan{\frac{b}{a}} \\
+			&= \arctan{\frac{4}{3}} \\
+			(&= 53.1\degree [1.d.p]) 
+		\end{align*}
+		The period of the function is determined by the coefficient of the theta variable. Normally, i.e. when the coefficient is 1, the period is $2\pi$. That is, if the parameter of function $f$ becomes $2\theta$, the period becomes $\frac{2\pi}{2} = \pi$. \\
+		\subparagraph{Example 2} $f:\theta \mapsto 3\sin{\theta} - 4\cos{\theta}$ \\\\
+		Equate $3\sin{\theta} - 4\cos{\theta}$ with $a\sin{\theta} + b\cos{\theta}$, giving:
+		\begin{align*}
+		3\sin{\theta} - 4\cos{\theta} &\Leftrightarrow a\sin{\theta} + b\cos{\theta} \\
+		\therefore a &= 3 \\
+		\therefore b &= -4 \\
+		\end{align*}
+		The amplitude of the function can be calculated as:
+		\begin{align*}
+		r &= \sqrt{a^2 + b^2} \\
+		&= \sqrt{3^2 + (-4)^2}
+		&= 5
+		\end{align*}
+		The phase shift of the function can also be calculated as:
+		\begin{align*}
+		\alpha &= \arctan{\frac{b}{a}} \\
+		&= \arctan{\frac{-4}{3}} \\
+		(&= -53.1\degree [1.d.p]) 
+		\end{align*}
+        
     \newpage
     
 \end{document}
