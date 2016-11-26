@@ -36,7 +36,6 @@
 %  Prerequisites
 %  Approaching The Problem
 %  Calculating Coordinates of a 20-degrees-rotated Rectangle
-%  Conclusion 1
 %  Futher Investigation
 %  Appendix
 %  Works Cited
@@ -407,7 +406,121 @@
             &= 3\cos{20\degree} + 4\sin{20\degree}
             \end{align*}
             Which is also consistent with the $Y_3$ value obtained via the Graphical method.
-            
+        % -- %
+        \subsection{Approaching a General Formula} I have drawn several images of the rectangle rotating in different angles, quadrants, as well as one image in a clockwise direction.
+        \begin{figure}[h!]
+            \includegraphics[width=\linewidth]{RRect6.png}
+            \caption{Rotated Rectangles}
+            \label{fig:rrect6}
+        \end{figure} \newpage
+        Figure \ref{fig:rrect6} shows images of rectangles rotated by different angles, including an image that has been rotated in the clockwise direction.\newpage
+        \begin{figure}[h!]
+            \includegraphics[width=\linewidth]{RRect7.png}
+            \caption{Rotated Rectangles With Circles}
+            \label{fig:rrect7}
+        \end{figure}
+        As shown in Figure \ref{fig:rrect7}, the general method to calculate x and y coordinates should still hold, as the lengths, widths as well as diagonal lengths do not vary. They can still be calculated via the method used to calculate $A_1$ and $B_1$ and $C_1$. \newpage
+        \subsection{Finding General Expressions For Calculating Coordinates of An Image of a Rectangle} Let the length of the rectangle be $a$ and the width be $b$, and the angle of rotation be $\theta$. \\\\
+        Let the points $A'$, $B'$ and $C'$ be the respective points of the image after the rectangle with the points $A$, $B$ and $C$ has been rotated $\theta$ degrees (or radians) [excluding the origin]. $X$ and $Y$ are the x and y coordinates of each point.
+        \begin{align*}
+            A'(X_A, Y_A) \\
+            B'(X_B, Y_B) \\
+            C'(X_C, Y_C)
+        \end{align*}
+        \subsubsection{Finding General Expression for $A'$} Using the case study of the image of rectangle (length 4, width 3) rotated $20\degree$ from the x-axis about the origin, $A'$ can be calculated as:
+        \begin{gather*}
+            A_1(4\cos{20\degree}, 4\sin{20\degree}) \\
+            \because 4 = length, length = a, \\
+            \because 20\degree = angle, angle = \theta \\
+            A_1(4\cos{20\degree}, 4\sin{20\degree}) \Rightarrow A_1(a\cos{\theta}, a\sin{\theta}) \Rightarrow A'(a\cos{\theta}, a\sin{\theta}) \\
+            \therefore A'(a\cos{\theta}, a\sin{\theta})
+        \end{gather*}
+        \subsubsection{Finding General Expression for $C'$} Using the case study of the image of rectangle (length 4, width 3) rotated $20\degree$ from the x-axis about the origin, $C'$ can be calculated as:
+        \begin{gather*}
+            C_1(-3\sin{20\degree}, 3\cos{20\degree}) \\
+            \because 3 = width, width = b, \\
+            \because 20\degree = angle, angle = \theta \\
+            C_1(-3\sin{20\degree}, 3\cos{20\degree}) \Rightarrow C_1(-b\sin{\theta}, b\cos{\theta}) \Rightarrow C'(-b\sin{\theta}, b\cos{\theta}) \\
+            \therefore C'(-b\sin{\theta}, b\cos{\theta})
+        \end{gather*}
+        \subsubsection{Finding General Expression for $B'$} Using the case study of the image of rectangle (length 4, width 3) rotated $20\degree$ from the x-axis about the origin, $B'$ can be calculated as:
+        \begin{gather*}
+            B_1(4\cos{20\degree} -3\sin{20\degree}, 3\cos{20\degree} + 4\sin{20\degree}) \\
+            \because 4 = length, length = a, \\
+            \because 3 = width, width = b, \\
+            \because 20\degree = angle, angle = \theta \\
+            B_1(4\cos{20\degree} -3\sin{20\degree}, 3\cos{20\degree} + 4\sin{20\degree}) \Rightarrow B_1(a\cos{\theta} -b\sin{\theta}, b\cos{\theta} + a\sin{\theta}) \\ \Rightarrow B'(a\cos{\theta} -b\sin{\theta}, b\cos{\theta} + a\sin{\theta}) \\
+            \therefore B'a\cos{\theta} -b\sin{\theta}, b\cos{\theta} + a\sin{\theta})
+        \end{gather*} \\
+        \subsection{General Expressions} These are the three expressions found above for calculating coordinates of an image of rectangle rotated.
+        \subsubsection{$A'$}
+        \begin{equation}
+            A'(a\cos{\theta}, a\sin{\theta})
+        \end{equation}
+        \subsubsection{$B'$}
+        \begin{equation}
+            B'(a\cos{\theta} -b\sin{\theta}, b\cos{\theta} + a\sin{\theta})
+        \end{equation}
+        \subsubsection{$C'$}
+        \begin{equation}
+            C'(-b\sin{\theta}, b\cos{\theta})
+        \end{equation}
+        \newpage
+        % -- %
+        \section{Further Investigation} This part of the paper focuses more on the nature of trigonometric functions.
+        \subsubsection{Investigating Functions with Composite Angles}
+        \paragraph{Combining sine and cosine function} A function with both cosine and sine, $a\sin{\theta} + b\cos{\theta}$, can be rewritten in the form $r\sin{(\theta + \alpha)}$, such that the expression only has sine and not both sine and cosine.
+        \subparagraph{Expressing $r$ and $\alpha$ in terms of $a$ and $b$} $r$ and $\alpha$ can be calculated using $a$ and $b$:
+        \begin{align*}
+            a\sin{\theta} + b\cos{\theta} \Leftrightarrow r\sin{(\theta + \alpha)} \\
+            \mathrm{Let} a\sin{\theta} + b\cos{\theta} &= r\sin{(\theta + \alpha)} \\
+            a\sin{\theta} + b\cos{\theta} &= r[\sin\theta\cos\alpha + \cos\theta\sin\alpha]
+            a\sin{\theta} + b\cos{\theta} &= [r\cos\alpha]\sin{\theta} + [r\sin\alpha]\cos{\theta}
+        \end{align*}
+        Equating both sides, such that:
+        \begin{align*}
+            a\sin{\theta} + b\cos{\theta} &\Leftrightarrow [r\cos\alpha]\sin{\theta} + [r\sin\alpha]\cos{\theta} \\
+            \therefore a &= [r\cos\alpha] \\
+            \therefore b &= [r\sin\alpha]
+        \end{align*}
+        Giving $a$ and $b$ in terms of $r$ and $\alpha$:
+        \begin{align}
+            a &= r\cos\alpha \\
+            b &= r\sin\alpha
+        \end{align}
+        Squaring a and b, giving:
+        \begin{align}
+            a^2 &= r^2\cos^2{\alpha} \\
+            b^2 &= r^2\sin^2{\alpha}
+        \end{align}
+        Adding \textbf{(16)} and \textbf{(17)}, giving:
+        \begin{align*}
+            a^2 + b^2 &= r^2\cos^2{\alpha} + r^2\sin^2{\alpha} \\
+            a^2 + b^2 &= r^2[\cos^2{\alpha} + \sin^2{\alpha}] \\
+            r^2 &= a^2 + b^2 \\
+            \therefore r &= \sqrt{a^2 + b^2}
+        \end{align*}
+        And thus giving $r$ in terms of $a$ and $b$:
+        \begin{equation}
+            r = \sqrt{a^2 + b^2}
+        \end{equation}
+        $\alpha$ can be expressed via $a$ and $b$ via rearranging \textbf{(16)} and \textbf{(17)}:
+        \begin{align*}
+            a &= r\cos\alpha \\
+            &\Rightarrow \cos\alpha = \frac{a}{r} \\
+            (&\Rightarrow \cos\alpha = \frac{a}{\sqrt{a^2 + b^2}}) \\
+            b &= r\sin\alpha \\
+            &\Rightarrow \sin\alpha = \frac{b}{r} \\
+            (&\Rightarrow \sin\alpha = \frac{b}{\sqrt{a^2 + b^2}}) \\
+            \tan\alpha &= \frac{\sin\alpha}{\cos\alpha} \\
+            &\Rightarrow \tan\alpha = \frac{\frac{b}{r}}{\frac{a}{r}} \\
+            &\Rightarrow \tan\alpha = \frac{b}{a} \\
+            \therefore \alpha &= \tan^{-1}{\left( \frac{b}{a}\right) }
+        \end{align*}
+        As such $\alpha$ can be expressed as:
+        \begin{equation}
+            \alpha = \tan^{-1}{\left( \frac{b}{a}\right) }
+        \end{equation}
     \newpage
     
 \end{document}
