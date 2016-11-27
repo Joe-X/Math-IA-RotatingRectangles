@@ -25,7 +25,7 @@
 % For Bibliography
 \usepackage[backend=bibtex,style=verbose-trad2,maxbibnames=99]{biblatex}
 \bibliography{RRect}
-
+%\usepackage[style=mla]{biblatex}
 
 % ------------------------------------------------------------------------ %
 % Document Structure                                                       %
@@ -55,7 +55,7 @@
         \newline\newline
         The approach to calculate the coordinates of the image of a rectangle rotated by given degrees (20\degree \ used for illustration of the question) is to use a combination of trigonometry (sine, cosine and tangent) properties and identities, as well as graphical methods such as calculating distance between two points on a 2D plane.
         \newline\newline
-        GeoGebra\autocite{GEOGEBRA:1} is used for the diagrams, while TeXstudio\autocite{TEXSTUDIO:1} is used to produce this formatted paper.
+        GeoGebra\autocite{GEOGEBRA:1} is used for the diagrams, while TeXstudio\autocite{TEXSTUDIO:1} is used to produce this formatted paper. LaTeX-Tutorials\autocite{LATEX:1} was used for reference for TeX formatting.
     \newpage
     
     \tableofcontents
@@ -468,7 +468,7 @@
         \newpage
         % -- %
         \section{Further Investigation} This part of the paper focuses more on the nature of trigonometric functions.
-        \subsubsection{Investigating Functions with Composite Angles}
+        \subsection{Investigating Functions with Composite Angles}
         \paragraph{Combining sine and cosine function} A function with both cosine and sine, $a\sin{\theta} + b\cos{\theta}$, can be rewritten in the form $r\sin{(\theta + \alpha)}$, such that the expression only has sine and not both sine and cosine.
         \subparagraph{Expressing $r$ and $\alpha$ in terms of $a$ and $b$} $r$ and $\alpha$ can be calculated using $a$ and $b$:
         \begin{align*}
@@ -522,7 +522,7 @@
             \alpha = \tan^{-1}{\left( \frac{b}{a}\right) }
         \end{equation} \\\\
         % -- %
-        Similarity, $r$ and $\alpha$ of the combined function $r\cos{\theta + \alpha}$ of $a\cos{\theta} - b\sin{\theta}$ can be given in terms of $a$ and $b$.
+        Similarity, $r$ and $\alpha$ of the combined function $r\cos{(\theta + \alpha)}$ of $a\cos{\theta} - b\sin{\theta}$ can be given in terms of $a$ and $b$.
         \subparagraph{Expressing $r$ and $\alpha$ in terms of $a$ and $b$} $r$ and $\alpha$ can be calculated using $a$ and $b$:
         \begin{align*}
         a\cos{\theta} - b\sin{\theta} \Leftrightarrow r\cos{(\theta + \alpha)} \\
@@ -586,7 +586,7 @@
         The amplitude of the function can be calculated as:
 		\begin{align*}
 			r &= \sqrt{a^2 + b^2} \\
-			&= \sqrt{3^2 + 4^2}
+			&= \sqrt{3^2 + 4^2} \\
 			&= 5
 		\end{align*}
 		The phase shift of the function can also be calculated as:
@@ -595,7 +595,7 @@
 			&= \arctan{\frac{4}{3}} \\
 			(&= 53.1\degree [1.d.p]) 
 		\end{align*}
-		The period of the function is determined by the coefficient of the theta variable. Normally, i.e. when the coefficient is 1, the period is $2\pi$. That is, if the parameter of function $f$ becomes $2\theta$, the period becomes $\frac{2\pi}{2} = \pi$. \\
+		The period of the function is determined by the coefficient of the theta variable. Normally, i.e. when the coefficient is 1, the period is $2\pi$. That is, if the parameter of function $f$ becomes $2\theta$, the period becomes $\frac{2\pi}{2} = \pi$. As such, if the parameter supplied is $k\theta$, $k \in \mathbb{R}$, the period then becomes $\frac{2\pi}{k}$ \\
 		\subparagraph{Example 2} $f:\theta \mapsto 3\sin{\theta} - 4\cos{\theta}$ \\\\
 		Equate $3\sin{\theta} - 4\cos{\theta}$ with $a\sin{\theta} + b\cos{\theta}$, giving:
 		\begin{align*}
@@ -606,7 +606,7 @@
 		The amplitude of the function can be calculated as:
 		\begin{align*}
 		r &= \sqrt{a^2 + b^2} \\
-		&= \sqrt{3^2 + (-4)^2}
+		&= \sqrt{3^2 + (-4)^2} \\
 		&= 5
 		\end{align*}
 		The phase shift of the function can also be calculated as:
@@ -615,7 +615,57 @@
 		&= \arctan{\frac{-4}{3}} \\
 		(&= -53.1\degree [1.d.p]) 
 		\end{align*}
+        The period is the same situation as example 1. \\
+        \subparagraph{Example 3} $f:\theta \mapsto 2\cos{\theta} - \sin{\theta}$ \\\\
+        Equate $2\cos{\theta} - \sin{\theta}$ with $a\cos{\theta} - b\sin{\theta}$, giving:
+        \begin{align*}
+        2\cos{\theta} - \sin{\theta} &\Leftrightarrow a\cos{\theta} - b\sin{\theta} \\
+        \therefore a &= 2 \\
+        \therefore b &= 1
+        \end{align*}
+        The amplitude of the function can be calculated as:
+        \begin{align*}
+        r &= \sqrt{a^2 + b^2} \\
+        &= \sqrt{1^2 + 2^2} \\
+        &= \sqrt{5}
+        \end{align*}
+        The phase shift of the function can also be calculated as:
+        \begin{align*}
+        \alpha &= \arctan{\frac{b}{a}} \\
+        &= \arctan{\frac{1}{2}} \\
+        (&= 26.6\degree [1.d.p]) 
+        \end{align*}
+        \subparagraph{Example 4} $f:\theta \mapsto \sqrt{5}\sin{\theta} + \sqrt{11}\cos{\theta}$ \\\\
+        Equate $\sqrt{5}\sin{\theta} + \sqrt{11}\cos{\theta}$ with $a\sin{\theta} + b\cos{\theta}$, giving:
+        \begin{align*}
+        \sqrt{5}\sin{\theta} + \sqrt{11}\cos{\theta} &\Leftrightarrow a\sin{\theta} + b\cos{\theta} \\
+        \therefore a &= \sqrt{5} \\
+        \therefore b &= \sqrt{11}
+        \end{align*}
+        The amplitude of the function can be calculated as:
+        \begin{align*}
+        r &= \sqrt{a^2 + b^2} \\
+        &= \sqrt{(\sqrt{5})^2 + (\sqrt{11})^2} \\
+        &= \sqrt{5 + 11} \\
+        &= \sqrt{16} \\
+        &= 4
+        \end{align*}
+        The phase shift of the function can also be calculated as:
+        \begin{align*}
+        \alpha &= \arctan{\frac{b}{a}} \\
+        &= \arctan{\frac{\sqrt{11}}{\sqrt{5}}} \\
+        (&= 56.0\degree [1.d.p]) 
+        \end{align*}
         
+        \newpage
+        % -- %
+        \section{Appendix}
+        \subsection{TeX Source Code} The TeX Source Code for this document is available at https://github.com/Joe-X/Math-IA-RotatingRectangles.
+        
+        \newpage
+        % -- %
+        \section{Works Cited}
+        \printbibliography
     \newpage
     
 \end{document}
