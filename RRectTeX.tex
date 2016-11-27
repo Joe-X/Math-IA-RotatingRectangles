@@ -466,6 +466,65 @@
             C'(-b\sin{\theta}, b\cos{\theta})
         \end{equation}
         \newpage
+        \subsection{Validating the General Expressions} The general expressions can be verified by applying the distance formula to check if the distances from the origin to the coordinates and from coordinates to coordinates are indeed the width, length, or diagonal length of the rectangle.
+        \subsubsection{Validating $A'$} The distance from $A'$ to the origin should be the length $a$ of the rectangle, and the distance from $A'$ to $B'$ should be the width $b$ of the rectangle.
+        \begin{align*}
+	        OA' &= \sqrt{(a\cos\theta)^2 + (a\sin\theta)^2} \\
+	        &= \sqrt{a^2\cos^2{\theta} + a^2\sin^2{\theta}} \\
+	        &= \sqrt{a^2[\cos^2{\theta} + \sin^2{\theta}]} \\
+	        &= \sqrt{a^2} \\
+	        &= a
+        \end{align*}
+        Since $a$ is the length of the rectangle, $OA'$ does evaluate to the length of the rectangle.
+        \begin{align*}
+        	A'B'&= \sqrt{(a\cos{\theta} - (a\cos{\theta} -b\sin{\theta}))^2 + (a\sin{\theta} - (b\cos{\theta} + a\sin{\theta}))^2} \\
+        	&= \sqrt{(a\cos{\theta} - a\cos{\theta} + b\sin{\theta})^2 + (a\sin{\theta} - b\cos{\theta} - a\sin{\theta})^2} \\
+        	&= \sqrt{(b\sin{\theta})^2 + (- b\cos{\theta})^2} \\
+        	&= \sqrt{b^2\sin^2{\theta} + b^2\cos^2{\theta}} \\
+        	&= \sqrt{b^2[\sin^2{\theta} + \cos^2{\theta}]} \\
+        	&= \sqrt{b^2} \\
+        	&= b
+        \end{align*}
+        Since $b$ is the width of the rectangle, $A'B'$ does evaluate to the width of the rectangle.
+        \subsubsection{Validating B'} The distance from $B'$ to $A'$ should be the width $b$ of the rectangle, and it does, as proved in the previous validation for $A'$. The distance from $B'$ to $C'$ should evaluate to the length $a$ of the rectangle. Also, as $OB'$ is the diagonal length of the rectangle, it should evaluate to $\sqrt{a^2 + b^2}$.
+        \begin{align*}
+        	B'C' &= \sqrt{(a\cos{\theta} -b\sin{\theta} - (-b\sin{\theta}))^2 + (b\cos{\theta} + a\sin{\theta} - (b\cos{\theta}))^2} \\
+        	&= \sqrt{(a\cos{\theta} -b\sin{\theta} + b\sin{\theta})^2 + (b\cos{\theta} + a\sin{\theta} - b\cos{\theta})^2} \\
+        	&= \sqrt{(a\cos{\theta})^2 + (a\sin{\theta})^2} \\
+        	&= \sqrt{a^2\cos^2{\theta} + a^2\sin^2{\theta}} \\
+        	&= \sqrt{a^2[\cos^2{\theta} + \sin^2{\theta}]} \\
+        	&= \sqrt{a^2} \\
+        	&= a
+        \end{align*}
+        As such, $B'C'$ does validate as the length $a$ of the rectangle.
+        \begin{align*}
+        	OB' &= \sqrt{(a\cos{\theta} -b\sin{\theta})^2 + (b\cos{\theta} + a\sin{\theta})^2} \\
+        	&= \sqrt{a^2\cos^2{\theta} - 2ab\cos\theta\sin\theta + b^2\sin^2{\theta} + b^2\cos^2{\theta} + 2ab\cos\theta\sin\theta + a^2\sin^2{\theta}} \\
+        	&= \sqrt{a^2\cos^2{\theta} + b^2\sin^2{\theta} + b^2\cos^2{\theta} + a^2\sin^2{\theta}} \\
+        	&= \sqrt{a^2[\cos^2{\theta} + \sin^2{\theta}] + b^2[\cos^2{\theta} + \sin^2{\theta}]} \\
+        	&= \sqrt{a^2 + b^2}
+        \end{align*}
+        As such, $OB'$ does validate as the diagonal length $\sqrt{a^2 + b^2}$ of the rectangle.
+        \subsubsection{Validating C'} $C'$ can be validated if $OC'$ is the width of the rectangle, and if $A'C'$ is the diagonal length of the rectangle ($\sqrt{a^2 + b^2}$), same as $OB'$.
+        \begin{align*}
+        	OC' &= \sqrt{(-b\sin{\theta})^2 + (b\cos{\theta})^2} \\
+        	&= \sqrt{b^2\sin^2{\theta} + b^2\cos^2{\theta}} \\
+        	&= \sqrt{b^2[\sin^2{\theta} + \cos^2{\theta}]} \\
+        	&= \sqrt{b^2} \\
+        	&= b
+        \end{align*}
+        As such, $OC'$ does evaluate to the width of the rectangle.
+        \begin{align*}
+        	A'C' &= \sqrt{(a\cos\theta - (-b\sin\theta))^2 + (a\sin\theta - (b\cos\theta))} \\
+        	&= \sqrt{(a\cos\theta + b\sin\theta)^2 + (a\sin\theta - b\cos\theta)} \\
+        	&= \sqrt{a^2\cos^2\theta + 2ab\cos\theta\sin\theta + b^2\sin^2\theta + a^2\sin^2\theta - 2ab\cos\theta\sin\theta + b^2\cos^2\theta} \\
+        	&= \sqrt{a^2\cos^2\theta + a^2\sin^2\theta + b^2\sin^2\theta + b^2\cos^2\theta} \\
+        	&= \sqrt{a^2[\cos^2\theta + \sin^2\theta] + b^2[\cos^2\theta + \sin^2\theta]} \\
+        	&= \sqrt{a^2 + b^2}
+        \end{align*}
+        As such, $A'C'$ does evaluate to the diagonal length $\sqrt{a^2 + b^2}$ of the rectangle.
+        %
+        \newpage
         % -- %
         \section{Further Investigation} This part of the paper focuses more on the nature of trigonometric functions.
         \subsection{Investigating Functions with Composite Angles}
