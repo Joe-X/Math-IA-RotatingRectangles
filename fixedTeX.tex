@@ -1,0 +1,758 @@
+% ======================================================================== %
+%   Rotating Rectangle Task (Math HL Practice IA Project)
+%       Joe Xu
+%       Y12D
+%       2016-11-26
+%       Ms. Many
+% ======================================================================== %
+
+\documentclass{article}
+
+% Title Information
+\title  {Rotating Rectangles Task}
+\date   {November 20, 2016}
+\author {Joe Xu}
+
+
+% Required Packages %
+
+% For Symbols
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{gensymb}
+% For Diagrams
+\usepackage{graphicx}
+% For Bibliography
+\usepackage[backend=bibtex,style=verbose-trad2,maxbibnames=99]{biblatex}
+\bibliography{RRect}
+%\usepackage[style=mla]{biblatex}
+
+% ------------------------------------------------------------------------ %
+% Document Structure                                                       %
+% ------------------------------------------------------------------------ %
+%  Title
+%  Abstract 
+%  Table of Contents
+%  Prerequisites
+%  Approaching The Problem
+%  Calculating Coordinates of a 20-degrees-rotated Rectangle
+%  Futher Investigation
+%  Appendix
+%  Works Cited
+% ------------------------------------------------------------------------ %
+
+
+% Document
+\begin{document}
+    \pagenumbering{gobble}
+    \maketitle
+    \newpage
+    
+    \section*{Abstract}
+        This paper is created to answer the questions given on the "Rotating Rectangles" task sheet. The questions are focused on  Trigonometry and Geometry.
+        \newline\newline
+        This paper is structured in accordance to the task sheet. That is, the first part of the paper focuses on calculating coordinates of an image of a rectangle rotated by given degrees. The second part of this paper focuses on the more general nature of the trigonometric functions sine and cosine.
+        \newline\newline
+        The approach to calculate the coordinates of the image of a rectangle rotated by given degrees (20\degree \ used for illustration of the question) is to use a combination of trigonometry (sine, cosine and tangent) properties and identities, as well as graphical methods such as calculating distance between two points on a 2D plane.
+        \newline\newline
+        GeoGebra\autocite{GEOGEBRA:1} is used for the diagrams, while TeXstudio\autocite{TEXSTUDIO:1} is used to produce this formatted paper. LaTeX-Tutorials\autocite{LATEX:1} was used for reference for TeX formatting.
+    \newpage
+    
+    \tableofcontents
+    \newpage
+    
+    \pagenumbering{arabic}
+        
+    \section{Prerequisites}
+        \subsection{Trigonometric Properties and Identities}
+        Trigonometric properties such as the Pythagorean theorem and trigonometric identities such as the Pythagorean identities and compound angle identities are utilized throughout this paper for proofs and for calculations.
+        \paragraph{Trigonometric Properties} These are basic properties involving right-angled triangles as well as the unit circle.
+            \subparagraph{Labels on a Right-Angled Triangle} These labels will be used by the following properties and identities.
+            \begin{figure}[h!]
+                \includegraphics[width=\linewidth]{RRectPreq1.png}
+                \caption{Labeled Right-Angled Triangle}
+                \label{fig:tri1}
+            \end{figure}\newline
+            Figure \ref{fig:tri1} shows a labeled triangle, with vertices $A$, $B$ and $C$, and edges $a$, $b$, and $c$. Edge $a$ is the adjacent leg of the right-angle triangle; it forms the angle $\theta$ and a right-angle with edges $b$ and $c$ respectively. Edge $a$ is the opposite leg of the triangle; it is the edge opposite to the angle $\theta$. Edge $c$ is the hypotenuse of the triangle; it is the longest edge of the triangle.
+            \subparagraph{Pythagorean Theorem}\label{PYTH:1} The Pythagorean theorem states that for a right-angled Triangle (see Figure \ref{fig:tri1}), the square of the adjacent leg plus the opposite leg equals to the square of the hypotenuse.
+            \begin{align*}
+                adjacent^2 + opposite^2 &= hypotenuse^2 \\
+                a^2 + b^2 &= c^2
+            \end{align*}
+            \subparagraph{Basic Trigonometric Functions}\label{TRIG:1} Sine, Cosine and Tangent, as well as Co-secant(csc) and Secant(sec). The angle $\theta$ is used here for the right-angled Triangle, but these functions can take bigger or smaller angles as well (with exceptions for tangent).
+            \begin{align*}
+                \cos{\theta} &= \frac{adjacent}{hypotenuse} \left(= \frac{a}{c}\right) \\
+                \sin{\theta} &= \frac{opposite}{hypotenuse} \left(= \frac{b}{c}\right) \\
+                \tan{\theta} &= \frac{\sin{\theta}}{\cos{\theta}} = \frac{opposite}{adjacent} \left(= \frac{b}{a}\right) \\
+                \sec{\theta} &= \frac{1}{\cos{\theta}} \\
+                \csc{\theta} &= \frac{1}{\sin{\theta}} \\
+            \end{align*}
+            \subparagraph{The Unit Circle}\label{UC:1} The unit circle can help to give the exact values of special angles, 30\degree, 45\degree, 65\degree, etc. The radius of the circle is one ($r=1$). The radius of the circle is the hypotenuse, which can form a right-angled triangle with the x-axis, by the vertical extension from the intersection of the radius with the circle's circumference to the x-axis.
+            \begin{figure}[h!]
+             \includegraphics[width=\linewidth]{unit-circle-degrees.png}
+                \caption{The Unit Circle}
+                \label{fig:uc1}
+            \end{figure}\newpage
+            This diagram is from OnlineMathLearning\autocite{UNIT_CIRCLE:1}.
+        \paragraph{Trigonometric Identities} These include the Pythagorean identities and the compound angle identities.
+            \subparagraph{Pythagorean Identities}
+            \begin{align}
+                \cos{\theta}^2 + \sin{\theta}^2 &\equiv 1 \\
+                1 + \tan{\theta}^2 &\equiv \sec{\theta} \\
+                \cot{\theta} + 1 &\equiv \csc{\theta}
+            \end{align}
+            \subparagraph{Compound Angle Identities}
+            \begin{align}
+                \sin{(\alpha \pm \beta)} &= \sin{\alpha}\cos{\beta} \pm \cos{\alpha}\sin{\beta} \\
+                \cos{(\alpha \pm \beta)} &= \cos{\alpha}\cos{\beta} \mp \sin{\alpha}\sin{\beta}
+            \end{align}
+            %%%%%%%%%%
+            \newpage
+        \subsection{Graphical Properties and Calculations} This includes the distance formula.
+        \paragraph{Calculating Distance Between Two Points} This formula calculates the distance (length) between two points, $A$ and $B$ (or the length of segment, $AB$). Let point $A$ and $B$ be $(X_1, Y_1)$ and $(X_2, Y_2)$ respectively, where X and Y denotes the coordinates of $A$ and $B$.
+        \begin{equation}
+            AB_{\mathrm{DISTANCE}} = \sqrt{(X_2 - X_1)^2 + (Y_2 - Y_1)^2}
+        \end{equation}
+        
+    %%%%%%%%
+    \newpage
+    \section{Approaching The Problem} As per the questions from the task sheet, I am to calculate the coordinates of the image of a rectangle rotated by given degrees. There exists multiple methods to calculate the coordinates, but to get results as accurate and as exact as possible, I have decided to use trigonometrical functions in conjunction with the unit circle (modifying the radius) to calculate the coordinates. To do so, the investigation is based on a case study of the image of a rectangle $OABC$ rotated $20\degree$ from the x-axis, anti-clockwise, about the origin, $O$; the length and width of the rectangle is 4 units and 3 units respectively.
+    \begin{figure}[h!]
+        \includegraphics[width=\linewidth]{RRect1.png}
+        \caption{Image of Rectangle OABC Rotated 20$\degree$}
+        \label{fig:rrect1}
+    \end{figure} \newline
+    Figure \ref{fig:rrect1} shows the rectangle $\mathrm{OABC}$ rotated $20\degree$ from the x-axis about the origin $O$, giving the image $\mathrm{OA_1B_1C_1}$.
+    \\\\
+    I will calculate the coordinates of the image in terms of sines and cosines in order to deduce general expressions for calculating the coordinates.
+    \newpage
+        \subsection{Calculating $A_1$} Let $A_1(X_1, Y_1)$. In order to calculate $A_1$, I isolated the segment $\mathrm{OA_1}$ from the image to form a right-angled triangle with the x-axis. This is demonstrated in the following diagrams:
+        \begin{figure}[h!]
+            \includegraphics[width=\linewidth]{RRect2.png}
+            \caption{Right-angled Triangle Formed By $OA_1$}
+            \label{fig:rrect2}
+        \end{figure} \newline
+        Then, I treated the hypotenuse (the length of the rectangle $OA_1 = 4$) as the radius of a unit circle multiplied by the length $OA_1$, i.e. a circle with radius $r = 4$. \newpage
+        \begin{figure}[h!]
+            \includegraphics[width=\linewidth]{RRect3.png}
+            \caption{Right-angled Triangle Formed By $OA_1$}
+            \label{fig:rrect3}
+        \end{figure} 
+        Recall that the height (y-value) of a point on the circumference of a unit circle equals to $\sin{\alpha}$; the width (x-value) of a point on the circumference of a unit circle equals to $\cos{\alpha}$. This is because (a is adjacent side, b is opposite, r is radius, also the hypotenuse):
+        \begin{align*}
+            \cos{\alpha} &= \frac{adjacent}{hypotenuse} \\
+            \cos{\alpha} &= \frac{a}{r} \\
+            adjacent &\Rightarrow a = r\cos{\alpha} = \cos{\alpha} \\
+            \therefore x = a &= \cos{\alpha} \\
+            % - - - - - - - - - - - - - - - - - - - - - - - - - %
+            \sin{\alpha} &= \frac{opposite}{hypotenuse} \\
+            \sin{\alpha} &= \frac{b}{r} \\
+            opposite &\Rightarrow a = r\sin{\alpha} = \sin{\alpha} \\
+            \therefore y = b &= \sin{\alpha}
+        \end{align*} \\
+        In the case of the image of the rectangle, the r value is no longer 1, but instead the length (or width for other coordinates) of the rectangle. For $A_1$, $r = length = 4$. As such, the values for $X_1$ and $Y_1$ can be obtained as follows:
+        \begin{align*}
+            X_1 &= r\cos{\alpha} = 4\cos{20\degree} \\
+            Y_1 &= r\sin{\alpha} = 4\sin{20\degree}
+        \end{align*} \\
+        Therefore, $A_1$ have the coordinates:
+        \begin{equation}
+            A_1(4\cos{20\degree}, 4\sin{20\degree})
+        \end{equation}
+        \subsection{Calculating $C_1$} $C_1$ can be calculated using the same method as $A_1$, just that the angle and radius is different. Let $C_1(X_2, Y_2)$.
+        \begin{figure}[h!]
+            \includegraphics[width=\linewidth]{RRect4.png}
+            \caption{Right-angled Triangle Formed By $OC_1$}
+            \label{fig:rrect4}
+        \end{figure}  \newpage
+        In Figure \ref{fig:rrect4}, the radius, i.e. the hypotenuse of the triangle is 3 units ($OC_1$). The angle $\alpha = 90\degree + 20\degree = 110\degree$. Using the expressions found previously, $X_2$ and $Y_3$ can be calculated as follows:
+        \begin{align*}
+            X_2 &= r\cos{\alpha} \\
+            &= 3\cos{(90\degree + 20\degree)}
+        \end{align*} \\
+        Notice the presence of two angles here, $90\degree$ and $20\degree$. $X_2$ can thus be calculated using the composite angle identity for cosine (see equation \textbf{(5)}):
+        \begin{align*}
+            X_2 &= 3\cos{(90\degree + 20\degree)} \\
+            &= 3[\cos{90\degree}\cos{20\degree} - \sin{90\degree}\sin{20\degree}] \\
+            &= 3[0\times\cos{20\degree} - 1\times\sin{20\degree}] \\
+            &= 3[-\sin{20\degree}] \\
+            &= -3\sin{20\degree}
+        \end{align*}\\
+        $Y_2$ can be calculated in a similar fashion:
+        \begin{align*}
+            Y_2 &= r\sin{\alpha} \\
+            &= 3\sin{(90\degree + 20\degree)} \\
+            &= 3[\sin{90\degree}\cos{20\degree} + \cos{90\degree}\sin{20\degree}] \\
+            &= 3[1\times\cos{20\degree} + 0\times\sin{20\degree}] \\
+            &= 3[\cos{20\degree}] \\
+            &= 3\cos{20\degree}
+        \end{align*} \\
+        Therefore, $C_1$ have the coordinates:
+        \begin{equation}
+            C_1(-3\sin{20\degree}, 3\cos{20\degree})
+        \end{equation}
+        \subsection{Calculating $B_1$} Let $B_1(X_3, Y_3)$. $B_1$ can be obtained in two ways: $B_1$ can be obtained via the solutions to two simultaneous equations from the distances $C_1B_1$ and $A_1B_1$ (graphical method), or, obtained by finding $OA_1$ and angle $\widehat{AOB}$ (trigonometrical method).
+        \subsubsection{Calculating $B_1$ (Graphical Method)} The distance $C_1B_1$ is equivalent to the length of the rectangle [4 units], and the distance $A_1B_1$ is equivalent to the width of the rectangle [3 units]. As such, two equations can be formed. In addition, $OB_1$ is also the diagonal length of the rectangle; it is also the hypotenuse of the triangle $OB_1X_3$. \\\\
+        Using the Pythagorean theorem, $OB_1$ is equivalent to:
+        \begin{align*}
+            OB_1^2 &\Leftrightarrow X_3^2 + Y_3^2 \Leftrightarrow 3^2 + 4^2 = 25 \\
+            \therefore OB_1 &= \sqrt{25} = 5
+        \end{align*}
+            \paragraph{Equation 1} This is the distance, i.e. length of the segment $C_1B_1$, which in turn is equivalent to the length of the rectangle, 4 units. See \textbf{(8)} for the coordinates of $C_1$.
+            \begin{align*}
+                C_1B_1 = 4 &= \sqrt{(-3\sin{20\degree} - X_3)^2 + (3\cos{20\degree} - Y_3)^2} \\
+                16 &= (-3\sin{20\degree} - X_3)^2 + (3\cos{20\degree} - Y_3)^2 \\
+                16 &= 9\sin^2{20\degree} + 6X_3\sin{20\degree} + X_3^2 + 9\cos^2{20\degree} - 6Y_3\cos{20\degree} + Y_3^2
+            \end{align*}
+            Rearranging, gives:
+            \begin{align*}
+                16 &= 9\sin^2{20\degree} + 6X_3\sin{20\degree} + X_3^2 + 9\cos^2{20\degree} - 6Y_3\cos{20\degree} + Y_3^2 \\
+                16 &= 9\sin^2{20\degree} + 9\cos^2{20\degree} + X_3^2 + Y_3^2 + 6X_3\sin{20\degree} - 6Y_3\cos{20\degree} \\
+                16 &= 9[\cos^2{20\degree} + \sin^2{20\degree}] + [X_3^2 + Y_3^2] + 6X_3\sin{20\degree} - 6Y_3\cos{20\degree}
+            \end{align*}
+            Recall that $\cos^2{\theta} + \sin^2{\theta} \equiv 1$, as per the first Pythagorean identity [see \textbf{(1)}]. Also, $OB_1 = X_3^2 + Y_3^2 = 5$, as per the previous calculation for the length $OB_1$. Substituting these values in, giving:
+            \begin{align*}
+                16 &= 9 + 25 + 6X_3\sin{20\degree} - 6Y_3\cos{20\degree} \\
+                -18 &= 6X_3\sin{20\degree} - 6Y_3\cos{20\degree} \\
+                -3 &= X_3\sin{20\degree} - Y_3\cos{20\degree}
+            \end{align*}
+            And thus, the first equation is:
+            \begin{equation}
+                -3 = X_3\sin{20\degree} - Y_3\cos{20\degree}
+            \end{equation} \\\\
+            % -- %
+            \paragraph{Equation 2} This is the distance, i.e. length of the segment $A_1B_1$, which in turn is equivalent to the width of the rectangle, 4 units. See \textbf{(7)} for the coordinates of $A_1$.
+            \begin{align*}
+                A_1B_1 = 3 &= \sqrt{(4\cos{20\degree} - X_3)^2 + (4\sin{20\degree} - Y_3)^2} \\
+                9 &= (4\cos{20\degree} - X_3)^2 + (4\sin{20\degree} - Y_3)^2 \\
+                9 &= 16\cos^2{20\degree} - 8X_3\cos{20\degree} + X_3^2 + 16\sin^2{20\degree} - 8Y_3\sin{20\degree} + Y_3^2
+            \end{align*}
+            Rearranging, gives:
+            \begin{align*}
+                9 &= 16\cos^2{20\degree} - 8X_3\cos{20\degree} + X_3^2 + 16\sin^2{20\degree} - 8Y_3\sin{20\degree} + Y_3^2 \\
+                9 &= 16\cos^2{20\degree} + 16\sin^2{20\degree} + X_3^2 + Y_3^2 - 8X_3\cos{20\degree} - 8Y_3\sin{20\degree} \\
+                9 &= 16[\cos^2{20\degree} + \sin^2{20\degree}] + [X_3^2 + Y_3^2] - 8X_3\cos{20\degree} - 8Y_3\sin{20\degree} \\
+                9 &= 16 + 25 - 8X_3\cos{20\degree} - 8Y_3\sin{20\degree} \\
+                -32 &= - 8X_3\cos{20\degree} - 8Y_3\sin{20\degree} \\
+                4 &= X_3\cos{20\degree} + Y_3\sin{20\degree}
+            \end{align*}
+            And thus, the second equation is:
+            \begin{equation}
+                4 = X_3\cos{20\degree} + Y_3\sin{20\degree}
+            \end{equation}
+            % -- %
+            \paragraph{Solving for $X_3$} $X_3$ can be found by making $Y_3$ the subject of both equations \textbf{(9)} and \textbf{(10)}, and then equating them.
+            \subparagraph{Rearranging (9)} Making $Y_3$ the subject of the equation:
+            \begin{align*}
+                -3 &= X_3\sin{20\degree} - Y_3\cos{20\degree} \\
+                Y_3\cos{20\degree} &= X_3\sin{20\degree} + 3 \\
+                \therefore Y_3 &= \frac{X_3\sin{20\degree} + 3}{\cos{20\degree}}
+            \end{align*}
+            \subparagraph{Rearranging (10)} Making $Y_3$ the subject of the equation:
+            \begin{align*}
+                4 &= X_3\cos{20\degree} + Y_3\sin{20\degree} \\
+                Y_3\sin{20\degree} &= 4 - X_3\cos{20\degree} \\
+                \therefore Y_3 &= \frac{4 - X_3\cos{20\degree}}{\sin{20\degree}}
+            \end{align*}
+            \subparagraph{Equating $Y_3$ Equations} Equating the two equations where $Y_3$ is the subject can give the value for $X_3$. \\\\ 
+            Since:
+            \begin{equation*}
+                Y_3 = \frac{X_3\sin{20\degree} + 3}{\cos{20\degree}} \Leftrightarrow \frac{4 - X_3\cos{20\degree}}{\sin{20\degree}} = Y_3
+            \end{equation*}
+            Therefore:
+            \begin{align*}
+                \frac{X_3\sin{20\degree} + 3}{\cos{20\degree}} &= \frac{4 - X_3\cos{20\degree}}{\sin{20\degree}}
+            \end{align*}
+            Cross-multiplying, gives:
+            \begin{align*}
+            \frac{X_3\sin{20\degree} + 3}{\cos{20\degree}} &= \frac{4 - X_3\cos{20\degree}}{\sin{20\degree}} \\
+            \sin{20\degree}[X_3\sin{20\degree} + 3] &= \cos{20\degree}[4 - X_3\cos{20\degree}] \\
+            X_3\sin^2{20\degree} + 3\sin{20\degree} &= 4\cos{20\degree} - X_3\cos^2{20\degree} \\
+            X_3[\sin^2{20\degree} + \cos^2{20\degree}] &= 4\cos{20\degree} - 3\sin{20\degree}
+            \end{align*}
+            Notice that $\sin^2{20\degree} + \cos^2{20\degree} \equiv 1$ as according to the first Pythagorean identity [see \textbf{(1)}]. Therefore:
+            \begin{align*}
+                X_3[\sin^2{20\degree} + \cos^2{20\degree}] &= 4\cos{20\degree} - 3\sin{20\degree} \\
+                \therefore X_3 &= 4\cos{20\degree} - 3\sin{20\degree}
+            \end{align*}
+            % -- %
+            \paragraph{Solving for $Y_3$} $Y_3$ can be found by making $X_3$ the subject of both equations \textbf{(9)} and \textbf{(10)}, and then equating them.
+            \subparagraph{Rearranging (9)} Making $X_3$ the subject of the equation:
+            \begin{align*}
+            -3 &= X_3\sin{20\degree} - Y_3\cos{20\degree} \\
+            X_3\sin{20\degree} &= Y_3\cos{20\degree} - 3 \\
+            \therefore X_3 &= \frac{Y_3\cos{20\degree} - 3}{\sin{20\degree}}
+            \end{align*}
+            \subparagraph{Rearranging (10)} Making $X_3$ the subject of the equation:
+            \begin{align*}
+            4 &= X_3\cos{20\degree} + Y_3\sin{20\degree} \\
+            X_3\cos{20\degree} &= 4 - Y_3\sin{20\degree} \\
+            \therefore X_3 &= \frac{4 - Y_3\sin{20\degree}}{\cos{20\degree}}
+            \end{align*}
+            \subparagraph{Equating $X_3$ Equations} Equating the two equations where $X_3$ is the subject can give the value for $Y_3$. \\\\ 
+            Since:
+            \begin{equation*}
+                X_3 = \frac{Y_3\cos{20\degree} - 3}{\sin{20\degree}} \Leftrightarrow \frac{4 - Y_3\sin{20\degree}}{\cos{20\degree}} = X_3
+            \end{equation*}
+            Therefore:
+            \begin{equation*}
+               \frac{Y_3\cos{20\degree} - 3}{\sin{20\degree}} = \frac{4 - Y_3\sin{20\degree}}{\cos{20\degree}}
+            \end{equation*}
+            Cross-multiplying, gives:
+            \begin{align*}
+                \frac{Y_3\cos{20\degree} - 3}{\sin{20\degree}} &= \frac{4 - Y_3\sin{20\degree}}{\cos{20\degree}} \\
+                \cos{20\degree}[Y_3\cos{20\degree} - 3] &= \sin{20\degree}[4 - Y_3\sin{20\degree}] \\
+                Y_3\cos^2{20\degree} - 3\cos{20\degree} &= 4\sin{20\degree} - Y_3\sin^2{20\degree} \\
+                Y_3\cos^2{20\degree} + Y_3\sin^2{20\degree} &= 4\sin{20\degree} + 3\cos{20\degree} \\
+                Y_3[\cos^2{20\degree} + \sin^2{20\degree}] &= 4\sin{20\degree} + 3\cos{20\degree}
+            \end{align*}
+            Notice that $\cos^2{20\degree} + \sin^2{20\degree} \equiv 1$ as according to the first Pythagorean identity [see \textbf{(1)}]. Therefore:
+            \begin{align*}
+                Y_3[\cos^2{20\degree} + \sin^2{20\degree}] &= 4\sin{20\degree} + 3\cos{20\degree} \\
+                \therefore Y_3 &= 3\cos{20\degree} + 4\sin{20\degree}
+            \end{align*}
+            % -- %
+            \paragraph{Coordinates for $B_1$} The values for $X_3$ and $Y_3$ have been found, and thus $B_1$ have the coordinates:
+            \begin{equation}
+                B_1(4\cos{20\degree} - 3\sin{20\degree}, 3\cos{20\degree} + 4\sin{20\degree})
+            \end{equation} \newpage
+            % -- %
+            \subsubsection{Calculating $B_1$ (Trigonometrical Method)} $B_1$ can be calculated in the same way as $A_1$ and $C_1$.
+            \paragraph{Calculating $OB$} The length of $OB$ is required as it is the same as $OB_1$. Both are the diagonal length of the rectangle. To calculate, divide the rectangle into two equivalent triangles via $OB$. $OB$ then becomes the hypotenuse of the right-angled triangle $\vartriangle{AOB}$:
+            \begin{align*}
+                OB^2 &= OA^2 + AB^2 \\
+                OB^2 &= 4^2 + 3^2 \\
+                OB^2 &= 25 \\
+                \therefore OB &= 5
+            \end{align*}
+            \begin{figure}[h!]
+                \includegraphics[width=\linewidth]{RRect5.png}
+                \caption{Right-angled Triangle Formed By $OB$}
+                \label{fig:rrect5}
+            \end{figure} \\
+            And thus,
+            \begin{equation}
+                OB_1 \Leftrightarrow OB = 5
+            \end{equation}
+            \paragraph{Calculating $\widehat{AOB}$} $\widehat{AOB}$ is important as it forms part of the composite angle $\widehat{AOB_1}$, which is the angle that will be used to calculate the coordinates.
+            \begin{align*}
+                \tan{\widehat{AOB}} &= \frac{opposite}{adjacent} \\
+                \tan{\widehat{AOB}} &= \frac{3}{4} \\
+                \therefore \widehat{AOB} &= \tan^{-1}{\left(\frac{3}{4}\right)}
+            \end{align*}
+            \paragraph{Calculating $\widehat{AOB_1}$} $AOB_1$ is calculated by the $20\degree$ rotation angle plus the angle formed by $OB_1$ and $OA_1$ which is equivalent to that of $\widehat{AOB}$:
+            \begin{equation*}
+                \widehat{AOB_1} = 20\degree + \tan^{-1}{\left(\frac{3}{4}\right)}
+            \end{equation*}
+            \paragraph{Calculating $X_3$} $X_3$ can then be calculated in the fashion as $A_1$. The radius is $OB$, which is 5 units. The angle is $AOB_1$, which equals to $\tan^{-1}{\left(\frac{3}{4}\right)}$:
+            \begin{align*}
+                X_3 &= 5\cos{(20\degree + \tan^{-1}{\left(\frac{3}{4}\right))}}
+            \end{align*}
+            Using the composite angle identity for cosine [see \textbf{(5)}], $X_3$ becomes:
+            \begin{align*}
+                X_3 &= 5\cos{(20\degree + \tan^{-1}{\left(\frac{3}{4}\right)})} \\
+                &= 5\left[\cos{20\degree}\cos{\tan^{-1}{\left(\frac{3}{4}\right)}} - \sin{20\degree}\sin{\tan^{-1}{\left(\frac{3}{4}\right)}}\right]
+            \end{align*}
+            $\cos{\tan^{-1}{\left(\frac{3}{4}\right)}}$ and $\sin{\tan^{-1}{\left(\frac{3}{4}\right)}}$ can be calculated in the following way:
+            \begin{align*}
+                \mathrm{For} \cos{\left( \tan^{-1}{\left(\frac{3}{4}\right)}\right) } \\
+                \mathrm{Let \ } \theta &= \tan^{-1}{\left(\frac{3}{4}\right)} \\
+                \Rightarrow \tan{\theta} &= \frac{3}{4}
+            \end{align*}
+            Since $\tan{\theta} = \frac{opposite}{adjacent}$, $opposite = 3$ and $adjacent = 4$. Therefore, $hypotenuse = \sqrt{3^2 + 4^2} = 5$. And thus,
+            \begin{align*}
+                \because \tan{\theta} &= \frac{3}{4} \\
+                \Rightarrow \cos{\theta} &= \frac{adjacent}{hypotenuse} = \frac{4}{5} \\
+                \therefore \cos{\tan^{-1}{\left(\frac{3}{4}\right)}} &= \frac{4}{5} \\
+                \Rightarrow \sin{\theta} &= \frac{opposite}{hypotenuse} = \frac{3}{5} \\
+                \therefore \sin{\tan^{-1}{\left(\frac{3}{4}\right)}} &= \frac{3}{5}
+            \end{align*}
+            Substituting these values back to the composite angle calculation:
+            \begin{align*}
+                X_3 &= 5\left[\cos{20\degree}\cos{\tan^{-1}{\left(\frac{3}{4}\right)}} - \sin{20\degree}\sin{\tan^{-1}{\left(\frac{3}{4}\right)}}\right] \\
+                &= 5\left[\cos{20\degree}\times \left( \frac{4}{5}\right)  - \sin{20\degree} \times \left( \frac{3}{5}\right)   \right] \\
+                &= 4\cos{20\degree} - 3\sin{20\degree}
+            \end{align*}
+            Which is consistent with the $X_3$ value obtained via the Graphical method.
+            % -- %
+            \paragraph{Calculating $Y_3$} $Y_3$ can then be calculated in the fashion as $A_1$. The radius is $OB$, which is 5 units. The angle is $AOB_1$, which equals to $\tan^{-1}{\left(\frac{3}{4}\right)}$:
+            \begin{align*}
+            X_3 &= 5\sin{(20\degree + \tan^{-1}{\left(\frac{3}{4}\right))}}
+            \end{align*}
+            Using the composite angle identity for cosine [see \textbf{(5)}], $X_3$ becomes:
+            \begin{align*}
+            X_3 &= 5\sin{(20\degree + \tan^{-1}{\left(\frac{3}{4}\right)})} \\
+            &= 5\left[\sin{20\degree}\cos{\tan^{-1}{\left(\frac{3}{4}\right)}} + \cos{20\degree}\sin{\tan^{-1}{\left(\frac{3}{4}\right)}}\right]
+            \end{align*}
+            $\sin{\tan^{-1}{\left(\frac{3}{4}\right)}}$ and $\cos{\tan^{-1}{\left(\frac{3}{4}\right)}}$ can be calculated in the following way:
+            \begin{align*}
+            \mathrm{For} \sin{\left( \tan^{-1}{\left(\frac{3}{4}\right)}\right) } \\
+            \mathrm{Let \ } \theta &= \tan^{-1}{\left(\frac{3}{4}\right)} \\
+            \Rightarrow \tan{\theta} &= \frac{3}{4}
+            \end{align*}
+            Since $\tan{\theta} = \frac{opposite}{adjacent}$, $opposite = 3$ and $adjacent = 4$. Therefore, $hypotenuse = \sqrt{3^2 + 4^2} = 5$. And thus,
+            \begin{align*}
+            \because \tan{\theta} &= \frac{3}{4} \\
+            \Rightarrow \sin{\theta} &= \frac{opposite}{hypotenuse} = \frac{4}{5} \\
+            \therefore \sin{\tan^{-1}{\left(\frac{3}{4}\right)}} &= \frac{3}{5} \\
+            \Rightarrow \cos{\theta} &= \frac{adjacent}{hypotenuse} = \frac{3}{5} \\
+            \therefore \cos{\tan^{-1}{\left(\frac{3}{4}\right)}} &= \frac{4}{5}
+            \end{align*}
+            Substituting these values back to the composite angle calculation:
+            \begin{align*}
+            X_3 &= 5\left[\sin{20\degree}\cos{\tan^{-1}{\left(\frac{3}{4}\right)}} + \cos{20\degree}\sin{\tan^{-1}{\left(\frac{3}{4}\right)}}\right] \\
+            &= 5\left[\sin{20\degree}\times \left( \frac{4}{5}\right)  + \cos{20\degree} \times \left( \frac{3}{5}\right)   \right] \\
+            &= 4\sin{20\degree} + 3\cos{20\degree} \\
+            &= 3\cos{20\degree} + 4\sin{20\degree}
+            \end{align*}
+            Which is also consistent with the $Y_3$ value obtained via the Graphical method.
+        % -- %
+        \subsection{Approaching a General Formula} I have drawn several images of the rectangle rotating in different angles, quadrants, as well as one image in a clockwise direction.
+        \begin{figure}[h!]
+            \includegraphics[width=\linewidth]{RRect6.png}
+            \caption{Rotated Rectangles}
+            \label{fig:rrect6}
+        \end{figure} \newpage
+        Figure \ref{fig:rrect6} shows images of rectangles rotated by different angles, including an image that has been rotated in the clockwise direction.\newpage
+        \begin{figure}[h!]
+            \includegraphics[width=\linewidth]{RRect7.png}
+            \caption{Rotated Rectangles With Circles}
+            \label{fig:rrect7}
+        \end{figure}
+        As shown in Figure \ref{fig:rrect7}, the general method to calculate x and y coordinates should still hold, as the lengths, widths as well as diagonal lengths do not vary. They can still be calculated via the method used to calculate $A_1$ and $B_1$ and $C_1$. \newpage
+        \subsection{Finding General Expressions For Calculating Coordinates of An Image of a Rectangle} Let the length of the rectangle be $a$ and the width be $b$, and the angle of rotation be $\theta$. \\\\
+        Let the points $A'$, $B'$ and $C'$ be the respective points of the image after the rectangle with the points $A$, $B$ and $C$ has been rotated $\theta$ degrees (or radians) [excluding the origin]. $X$ and $Y$ are the x and y coordinates of each point.
+        \begin{align*}
+            A'(X_A, Y_A) \\
+            B'(X_B, Y_B) \\
+            C'(X_C, Y_C)
+        \end{align*}
+        \subsubsection{Finding General Expression for $A'$} Using the case study of the image of rectangle (length 4, width 3) rotated $20\degree$ from the x-axis about the origin, $A'$ can be calculated as:
+        \begin{gather*}
+            A_1(4\cos{20\degree}, 4\sin{20\degree}) \\
+            \because 4 = length, length = a, \\
+            \because 20\degree = angle, angle = \theta \\
+            A_1(4\cos{20\degree}, 4\sin{20\degree}) \Rightarrow A_1(a\cos{\theta}, a\sin{\theta}) \Rightarrow A'(a\cos{\theta}, a\sin{\theta}) \\
+            \therefore A'(a\cos{\theta}, a\sin{\theta})
+        \end{gather*}
+        \subsubsection{Finding General Expression for $C'$} Using the case study of the image of rectangle (length 4, width 3) rotated $20\degree$ from the x-axis about the origin, $C'$ can be calculated as:
+        \begin{gather*}
+            C_1(-3\sin{20\degree}, 3\cos{20\degree}) \\
+            \because 3 = width, width = b, \\
+            \because 20\degree = angle, angle = \theta \\
+            C_1(-3\sin{20\degree}, 3\cos{20\degree}) \Rightarrow C_1(-b\sin{\theta}, b\cos{\theta}) \Rightarrow C'(-b\sin{\theta}, b\cos{\theta}) \\
+            \therefore C'(-b\sin{\theta}, b\cos{\theta})
+        \end{gather*}
+        \subsubsection{Finding General Expression for $B'$} Using the case study of the image of rectangle (length 4, width 3) rotated $20\degree$ from the x-axis about the origin, $B'$ can be calculated as:
+        \begin{gather*}
+            B_1(4\cos{20\degree} -3\sin{20\degree}, 3\cos{20\degree} + 4\sin{20\degree}) \\
+            \because 4 = length, length = a, \\
+            \because 3 = width, width = b, \\
+            \because 20\degree = angle, angle = \theta \\
+            B_1(4\cos{20\degree} -3\sin{20\degree}, 3\cos{20\degree} + 4\sin{20\degree}) \Rightarrow B_1(a\cos{\theta} -b\sin{\theta}, b\cos{\theta} + a\sin{\theta}) \\ \Rightarrow B'(a\cos{\theta} -b\sin{\theta}, b\cos{\theta} + a\sin{\theta}) \\
+            \therefore B'(a\cos{\theta} -b\sin{\theta}, b\cos{\theta} + a\sin{\theta})
+        \end{gather*} \\
+        \subsection{General Expressions} These are the three expressions found above for calculating coordinates of an image of rectangle rotated.
+        \subsubsection{$A'$}
+        \begin{equation}
+            A'(a\cos{\theta}, a\sin{\theta})
+        \end{equation}
+        \subsubsection{$B'$}
+        \begin{equation}
+            B'(a\cos{\theta} -b\sin{\theta}, b\cos{\theta} + a\sin{\theta})
+        \end{equation}
+        \subsubsection{$C'$}
+        \begin{equation}
+            C'(-b\sin{\theta}, b\cos{\theta})
+        \end{equation}
+        \newpage
+        \subsection{Validating the General Expressions} The general expressions can be verified by applying the distance formula to check if the distances from the origin to the coordinates and from coordinates to coordinates are indeed the width, length, or diagonal length of the rectangle.
+        \subsubsection{Validating $A'$} The distance from $A'$ to the origin should be the length $a$ of the rectangle, and the distance from $A'$ to $B'$ should be the width $b$ of the rectangle.
+        \begin{align*}
+	        OA' &= \sqrt{(a\cos\theta)^2 + (a\sin\theta)^2} \\
+	        &= \sqrt{a^2\cos^2{\theta} + a^2\sin^2{\theta}} \\
+	        &= \sqrt{a^2[\cos^2{\theta} + \sin^2{\theta}]} \\
+	        &= \sqrt{a^2} \\
+	        &= a
+        \end{align*}
+        Since $a$ is the length of the rectangle, $OA'$ does evaluate to the length of the rectangle.
+        \begin{align*}
+        	A'B'&= \sqrt{(a\cos{\theta} - (a\cos{\theta} -b\sin{\theta}))^2 + (a\sin{\theta} - (b\cos{\theta} + a\sin{\theta}))^2} \\
+        	&= \sqrt{(a\cos{\theta} - a\cos{\theta} + b\sin{\theta})^2 + (a\sin{\theta} - b\cos{\theta} - a\sin{\theta})^2} \\
+        	&= \sqrt{(b\sin{\theta})^2 + (- b\cos{\theta})^2} \\
+        	&= \sqrt{b^2\sin^2{\theta} + b^2\cos^2{\theta}} \\
+        	&= \sqrt{b^2[\sin^2{\theta} + \cos^2{\theta}]} \\
+        	&= \sqrt{b^2} \\
+        	&= b
+        \end{align*}
+        Since $b$ is the width of the rectangle, $A'B'$ does evaluate to the width of the rectangle.
+        \subsubsection{Validating B'} The distance from $B'$ to $A'$ should be the width $b$ of the rectangle, and it does, as proved in the previous validation for $A'$. The distance from $B'$ to $C'$ should evaluate to the length $a$ of the rectangle. Also, as $OB'$ is the diagonal length of the rectangle, it should evaluate to $\sqrt{a^2 + b^2}$.
+        \begin{align*}
+        	B'C' &= \sqrt{(a\cos{\theta} -b\sin{\theta} - (-b\sin{\theta}))^2 + (b\cos{\theta} + a\sin{\theta} - (b\cos{\theta}))^2} \\
+        	&= \sqrt{(a\cos{\theta} -b\sin{\theta} + b\sin{\theta})^2 + (b\cos{\theta} + a\sin{\theta} - b\cos{\theta})^2} \\
+        	&= \sqrt{(a\cos{\theta})^2 + (a\sin{\theta})^2} \\
+        	&= \sqrt{a^2\cos^2{\theta} + a^2\sin^2{\theta}} \\
+        	&= \sqrt{a^2[\cos^2{\theta} + \sin^2{\theta}]} \\
+        	&= \sqrt{a^2} \\
+        	&= a
+        \end{align*}
+        As such, $B'C'$ does validate as the length $a$ of the rectangle.
+        \begin{align*}
+        	OB' &= \sqrt{(a\cos{\theta} -b\sin{\theta})^2 + (b\cos{\theta} + a\sin{\theta})^2} \\
+        	&= \sqrt{a^2\cos^2{\theta} - 2ab\cos\theta\sin\theta + b^2\sin^2{\theta} + b^2\cos^2{\theta} + 2ab\cos\theta\sin\theta + a^2\sin^2{\theta}} \\
+        	&= \sqrt{a^2\cos^2{\theta} + b^2\sin^2{\theta} + b^2\cos^2{\theta} + a^2\sin^2{\theta}} \\
+        	&= \sqrt{a^2[\cos^2{\theta} + \sin^2{\theta}] + b^2[\cos^2{\theta} + \sin^2{\theta}]} \\
+        	&= \sqrt{a^2 + b^2}
+        \end{align*}
+        As such, $OB'$ does validate as the diagonal length $\sqrt{a^2 + b^2}$ of the rectangle.
+        \subsubsection{Validating C'} $C'$ can be validated if $OC'$ is the width of the rectangle, and if $A'C'$ is the diagonal length of the rectangle ($\sqrt{a^2 + b^2}$), same as $OB'$.
+        \begin{align*}
+        	OC' &= \sqrt{(-b\sin{\theta})^2 + (b\cos{\theta})^2} \\
+        	&= \sqrt{b^2\sin^2{\theta} + b^2\cos^2{\theta}} \\
+        	&= \sqrt{b^2[\sin^2{\theta} + \cos^2{\theta}]} \\
+        	&= \sqrt{b^2} \\
+        	&= b
+        \end{align*}
+        As such, $OC'$ does evaluate to the width of the rectangle.
+        \begin{align*}
+        	A'C' &= \sqrt{(a\cos\theta - (-b\sin\theta))^2 + (a\sin\theta - (b\cos\theta))} \\
+        	&= \sqrt{(a\cos\theta + b\sin\theta)^2 + (a\sin\theta - b\cos\theta)} \\
+        	&= \sqrt{a^2\cos^2\theta + 2ab\cos\theta\sin\theta + b^2\sin^2\theta + a^2\sin^2\theta - 2ab\cos\theta\sin\theta + b^2\cos^2\theta} \\
+        	&= \sqrt{a^2\cos^2\theta + a^2\sin^2\theta + b^2\sin^2\theta + b^2\cos^2\theta} \\
+        	&= \sqrt{a^2[\cos^2\theta + \sin^2\theta] + b^2[\cos^2\theta + \sin^2\theta]} \\
+        	&= \sqrt{a^2 + b^2}
+        \end{align*}
+        As such, $A'C'$ does evaluate to the diagonal length $\sqrt{a^2 + b^2}$ of the rectangle.
+        %
+        \newpage
+        % -- %
+        \section{Further Investigation} This part of the paper focuses more on the nature of trigonometric functions.
+        \subsection{Investigating Functions with Composite Angles}
+        \paragraph{Combining sine and cosine function} A function with both cosine and sine, $a\sin{\theta} + b\cos{\theta}$, can be rewritten in the form $r\sin{(\theta + \alpha)}$, such that the expression only has sine and not both sine and cosine.
+        \subparagraph{Expressing $r$ and $\alpha$ in terms of $a$ and $b$} $r$ and $\alpha$ can be calculated using $a$ and $b$:
+        \begin{align*}
+            a\sin{\theta} + b\cos{\theta} \Leftrightarrow r\sin{(\theta + \alpha)} \\
+            \mathrm{Let \ } a\sin{\theta} + b\cos{\theta} &= r\sin{(\theta + \alpha)} \\
+            a\sin{\theta} + b\cos{\theta} &= r[\sin\theta\cos\alpha + \cos\theta\sin\alpha] \\
+            a\sin{\theta} + b\cos{\theta} &= [r\cos\alpha]\sin{\theta} + [r\sin\alpha]\cos{\theta}
+        \end{align*}
+        Equating both sides, such that:
+        \begin{align*}
+            a\sin{\theta} + b\cos{\theta} &\Leftrightarrow [r\cos\alpha]\sin{\theta} + [r\sin\alpha]\cos{\theta} \\
+            \therefore a &= [r\cos\alpha] \\
+            \therefore b &= [r\sin\alpha]
+        \end{align*}
+        Giving $a$ and $b$ in terms of $r$ and $\alpha$:
+        \begin{align}
+            a &= r\cos\alpha \\
+            b &= r\sin\alpha
+        \end{align}
+        Squaring a and b, giving:
+        \begin{align}
+            a^2 &= r^2\cos^2{\alpha} \\
+            b^2 &= r^2\sin^2{\alpha}
+        \end{align}
+        Adding \textbf{(16)} and \textbf{(17)}, giving:
+        \begin{align*}
+            a^2 + b^2 &= r^2\cos^2{\alpha} + r^2\sin^2{\alpha} \\
+            a^2 + b^2 &= r^2[\cos^2{\alpha} + \sin^2{\alpha}] \\
+            r^2 &= a^2 + b^2 \\
+            \therefore r &= \sqrt{a^2 + b^2}
+        \end{align*}
+        And thus giving $r$ in terms of $a$ and $b$:
+        \begin{equation}
+            r = \sqrt{a^2 + b^2}
+        \end{equation}
+        $\alpha$ can be expressed via $a$ and $b$ via rearranging \textbf{(16)} and \textbf{(17)}:
+        \begin{align*}
+            a &= r\cos\alpha \\
+            &\Rightarrow \cos\alpha = \frac{a}{r} \\
+            (&\Rightarrow \cos\alpha = \frac{a}{\sqrt{a^2 + b^2}}) \\
+            b &= r\sin\alpha \\
+            &\Rightarrow \sin\alpha = \frac{b}{r} \\
+            (&\Rightarrow \sin\alpha = \frac{b}{\sqrt{a^2 + b^2}}) \\
+            \tan\alpha &= \frac{\sin\alpha}{\cos\alpha} \\
+            &\Rightarrow \tan\alpha = \frac{\frac{b}{r}}{\frac{a}{r}} \\
+            &\Rightarrow \tan\alpha = \frac{b}{a} \\
+            \therefore \alpha &= \tan^{-1}{\left( \frac{b}{a}\right) }
+        \end{align*}
+        As such $\alpha$ can be expressed as:
+        \begin{equation}
+            \alpha = \tan^{-1}{\left( \frac{b}{a}\right) }
+        \end{equation}
+        And therefore:
+        \begin{align*}
+            f:\theta \mapsto a\sin\theta + b\cos\theta &\Leftrightarrow f:\theta \mapsto r\sin{\left( \theta + \alpha \right) } \\
+            f:\theta \mapsto a\sin\theta + b\cos\theta &\Leftrightarrow f:\theta \mapsto \sqrt{a^2 + b^2}\sin{\left( \theta + \tan^{-1}{\left( \frac{b}{a}\right) }\right) }
+        \end{align*}
+        \\\\
+        % -- %
+        Similarity, $r$ and $\alpha$ of the combined function $r\cos{(\theta + \alpha)}$ of $a\cos{\theta} - b\sin{\theta}$ can be given in terms of $a$ and $b$.
+        \subparagraph{Expressing $r$ and $\alpha$ in terms of $a$ and $b$} $r$ and $\alpha$ can be calculated using $a$ and $b$:
+        \begin{align*}
+        a\cos{\theta} - b\sin{\theta} \Leftrightarrow r\cos{(\theta + \alpha)} \\
+        \mathrm{Let \ } a\cos{\theta} - b\sin{\theta} &= r\cos{(\theta + \alpha)} \\
+        a\cos{\theta} - b\sin{\theta} &= r[\cos\theta\cos\alpha - \sin\theta\sin\alpha] \\
+        a\cos{\theta} - b\sin{\theta} &= [r\cos\alpha]\cos{\theta} - [r\sin\alpha]\sin{\theta}
+        \end{align*}
+        Equating both sides, such that:
+        \begin{align*}
+        a\cos{\theta} - b\sin{\theta} &\Leftrightarrow [r\cos\alpha]\cos{\theta} - [r\sin\alpha]\sin{\theta} \\
+        \therefore a &= [r\cos\alpha] \\
+        \therefore b &= [r\sin\alpha]
+        \end{align*}
+        Giving $a$ and $b$ in terms of $r$ and $\alpha$:
+        \begin{align}
+        a &= r\cos\alpha \\
+        b &= r\sin\alpha
+        \end{align}
+        Squaring a and b, giving:
+        \begin{align}
+        a^2 &= r^2\cos^2{\alpha} \\
+        b^2 &= r^2\sin^2{\alpha}
+        \end{align}
+        Adding \textbf{(16)} and \textbf{(17)}, giving:
+        \begin{align*}
+        a^2 + b^2 &= r^2\cos^2{\alpha} + r^2\sin^2{\alpha} \\
+        a^2 + b^2 &= r^2[\cos^2{\alpha} + \sin^2{\alpha}] \\
+        r^2 &= a^2 + b^2 \\
+        \therefore r &= \sqrt{a^2 + b^2}
+        \end{align*}
+        And thus giving $r$ in terms of $a$ and $b$:
+        \begin{equation}
+        r = \sqrt{a^2 + b^2}
+        \end{equation}
+        $\alpha$ can be expressed via $a$ and $b$ via rearranging \textbf{(22)} and \textbf{(23)}:
+        \begin{align*}
+        a &= r\cos\alpha \\
+        &\Rightarrow \cos\alpha = \frac{a}{r} \\
+        (&\Rightarrow \cos\alpha = \frac{a}{\sqrt{a^2 + b^2}}) \\
+        b &= r\sin\alpha \\
+        &\Rightarrow \sin\alpha = \frac{b}{r} \\
+        (&\Rightarrow \sin\alpha = \frac{b}{\sqrt{a^2 + b^2}}) \\
+        \tan\alpha &= \frac{\sin\alpha}{\cos\alpha} \\
+        &\Rightarrow \tan\alpha = \frac{\frac{b}{r}}{\frac{a}{r}} \\
+        &\Rightarrow \tan\alpha = \frac{b}{a} \\
+        \therefore \alpha &= \tan^{-1}{\left( \frac{b}{a}\right) }
+        \end{align*}
+        As such $\alpha$ can be expressed as:
+        \begin{equation}
+        \alpha = \tan^{-1}{\left( \frac{b}{a}\right) }
+        \end{equation}
+        And therefore:
+        \begin{align*}
+        f:\theta \mapsto a\cos\theta - b\sin\theta &\Leftrightarrow f:\theta \mapsto r\cos{(\theta + \alpha)} \\
+        f:\theta \mapsto a\cos\theta - b\sin\theta &\Leftrightarrow f:\theta \mapsto \sqrt{a^2 + b^2}\cos{\left( \theta + \tan^{-1}{\left( \frac{b}{a}\right) }\right) }
+        \end{align*} \newpage
+        % -- %
+        \paragraph{Predicting the Amplitude, Phase Shift and Period Of Trigonometric Function Containing Both Cosine and Sine} Using the composite function found above, a function containing both sine and cosine can thus be combined into one and makes determining the amplitude, phase shift and period easier. The $r$ found above is known as the amplitude, while $\alpha$ is the phase shift.
+        \subparagraph{Example 1} $f:\theta \mapsto 3\sin{\theta} + 4\cos{\theta}$ \\\\
+        Equate $3\sin{\theta} + 4\cos{\theta}$ with $a\sin{\theta} + b\cos{\theta}$, giving:
+        \begin{align*}
+        	3\sin{\theta} + 4\cos{\theta} &\Leftrightarrow a\sin{\theta} + b\cos{\theta} \\
+        	\therefore a &= 3 \\
+        	\therefore b &= 4 \\
+        \end{align*}
+        The amplitude of the function can be calculated as:
+		\begin{align*}
+			r &= \sqrt{a^2 + b^2} \\
+			&= \sqrt{3^2 + 4^2} \\
+			&= 5
+		\end{align*}
+		The phase shift of the function can also be calculated as:
+		\begin{align*}
+			\alpha &= \arctan{\frac{b}{a}} \\
+			&= \arctan{\frac{4}{3}} \\
+			(&= 53.1\degree [1.d.p]) 
+		\end{align*}
+        Which gives the composite function:
+        \begin{align*}
+            f:\theta \mapsto 3\sin{\theta} + 4\cos{\theta} \Leftrightarrow f:\theta \mapsto 5\sin{(\theta + 53.1\degree)}
+        \end{align*}
+		The period of the function is determined by the coefficient of the theta variable. Normally, i.e. when the coefficient is 1 (which is in fact 1 in this case), the period is $2\pi$. That is, if the parameter of function $f$ becomes $2\theta$, the period becomes $\frac{2\pi}{2} = \pi$. As such, if the parameter supplied is $k\theta$, $k \in \mathbb{R}$, the period then becomes $\frac{2\pi}{k}$. \\
+		\subparagraph{Example 2} $f:\theta \mapsto 3\sin{\theta} - 4\cos{\theta}$ \\\\
+		Equate $3\sin{\theta} - 4\cos{\theta}$ with $a\sin{\theta} + b\cos{\theta}$, giving:
+		\begin{align*}
+		3\sin{\theta} - 4\cos{\theta} &\Leftrightarrow a\sin{\theta} + b\cos{\theta} \\
+		\therefore a &= 3 \\
+		\therefore b &= -4 \\
+		\end{align*}
+		The amplitude of the function can be calculated as:
+		\begin{align*}
+		r &= \sqrt{a^2 + b^2} \\
+		&= \sqrt{3^2 + (-4)^2} \\
+		&= 5
+		\end{align*}
+		The phase shift of the function can also be calculated as:
+		\begin{align*}
+		\alpha &= \arctan{\frac{b}{a}} \\
+		&= \arctan{\frac{-4}{3}} \\
+		(&= -53.1\degree [1.d.p]) 
+		\end{align*}
+        Which gives the composite function:
+        \begin{align*}
+        f:\theta \mapsto 3\sin{\theta} - 4\cos{\theta} \Leftrightarrow f:\theta \mapsto 5\sin{(\theta - 53.1\degree)}
+        \end{align*}
+        The period is the same situation as example 1. \\
+        \subparagraph{Example 3} $f:\theta \mapsto 2\cos{\theta} - \sin{\theta}$ \\\\
+        Equate $2\cos{\theta} - \sin{\theta}$ with $a\cos{\theta} - b\sin{\theta}$, giving:
+        \begin{align*}
+        2\cos{\theta} - \sin{\theta} &\Leftrightarrow a\cos{\theta} - b\sin{\theta} \\
+        \therefore a &= 2 \\
+        \therefore b &= 1
+        \end{align*}
+        The amplitude of the function can be calculated as:
+        \begin{align*}
+        r &= \sqrt{a^2 + b^2} \\
+        &= \sqrt{1^2 + 2^2} \\
+        &= \sqrt{5}
+        \end{align*}
+        The phase shift of the function can also be calculated as:
+        \begin{align*}
+        \alpha &= \arctan{\frac{b}{a}} \\
+        &= \arctan{\frac{1}{2}} \\
+        (&= 26.6\degree [1.d.p]) 
+        \end{align*}
+        Which gives the composite function:
+        \begin{align*}
+        f:\theta \mapsto 2\cos{\theta} - \sin{\theta} \Leftrightarrow f:\theta \mapsto \sqrt{5}\cos{(\theta + 26.6\degree)}
+        \end{align*}
+        The period is the same situation as that in Example 1.
+        \subparagraph{Example 4} $f:\theta \mapsto \sqrt{5}\sin{\theta} + \sqrt{11}\cos{\theta}$ \\\\
+        Equate $\sqrt{5}\sin{\theta} + \sqrt{11}\cos{\theta}$ with $a\sin{\theta} + b\cos{\theta}$, giving:
+        \begin{align*}
+        \sqrt{5}\sin{\theta} + \sqrt{11}\cos{\theta} &\Leftrightarrow a\sin{\theta} + b\cos{\theta} \\
+        \therefore a &= \sqrt{5} \\
+        \therefore b &= \sqrt{11}
+        \end{align*}
+        The amplitude of the function can be calculated as:
+        \begin{align*}
+        r &= \sqrt{a^2 + b^2} \\
+        &= \sqrt{(\sqrt{5})^2 + (\sqrt{11})^2} \\
+        &= \sqrt{5 + 11} \\
+        &= \sqrt{16} \\
+        &= 4
+        \end{align*}
+        The phase shift of the function can also be calculated as:
+        \begin{align*}
+        \alpha &= \arctan{\frac{b}{a}} \\
+        &= \arctan{\frac{\sqrt{11}}{\sqrt{5}}} \\
+        (&= 56.0\degree [1.d.p]) 
+        \end{align*}
+        Which gives the composite function:
+        \begin{align*}
+        f:\theta \mapsto \sqrt{5}sin{\theta} + \sqrt{11}\cos{\theta} \Leftrightarrow f:\theta \mapsto 4\sin{(\theta + 56.0\degree)}
+        \end{align*}
+        The period is the same situation as that in Example 1.
+        \newpage
+        % -- %
+        \section{Appendix}
+        \subsection{TeX Source Code} The TeX Source Code for this document is available at https://github.com/Joe-X/Math-IA-RotatingRectangles.
+        
+        \newpage
+        % -- %
+        \section{Works Cited}
+        \printbibliography
+    \newpage
+    
+\end{document}
