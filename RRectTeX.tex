@@ -89,7 +89,7 @@
             \end{align*}
             \subparagraph{The Unit Circle}\label{UC:1} The unit circle can help to give the exact values of special angles, 30\degree, 45\degree, 65\degree, etc. The radius of the circle is one ($r=1$). The radius of the circle is the hypotenuse, which can form a right-angled triangle with the x-axis, by the vertical extension from the intersection of the radius with the circle's circumference to the x-axis.
             \begin{figure}[h!]
-                \includegraphics[width=\linewidth]{unit-circle-degrees.png}
+             \includegraphics[width=\linewidth]{unit-circle-degrees.png}
                 \caption{The Unit Circle}
                 \label{fig:uc1}
             \end{figure}\newpage
@@ -450,7 +450,7 @@
             \because 3 = width, width = b, \\
             \because 20\degree = angle, angle = \theta \\
             B_1(4\cos{20\degree} -3\sin{20\degree}, 3\cos{20\degree} + 4\sin{20\degree}) \Rightarrow B_1(a\cos{\theta} -b\sin{\theta}, b\cos{\theta} + a\sin{\theta}) \\ \Rightarrow B'(a\cos{\theta} -b\sin{\theta}, b\cos{\theta} + a\sin{\theta}) \\
-            \therefore B'a\cos{\theta} -b\sin{\theta}, b\cos{\theta} + a\sin{\theta})
+            \therefore B'(a\cos{\theta} -b\sin{\theta}, b\cos{\theta} + a\sin{\theta})
         \end{gather*} \\
         \subsection{General Expressions} These are the three expressions found above for calculating coordinates of an image of rectangle rotated.
         \subsubsection{$A'$}
@@ -579,7 +579,13 @@
         As such $\alpha$ can be expressed as:
         \begin{equation}
             \alpha = \tan^{-1}{\left( \frac{b}{a}\right) }
-        \end{equation} \\\\
+        \end{equation}
+        And therefore:
+        \begin{align*}
+            f:\theta \mapsto a\sin\theta + b\cos\theta &\Leftrightarrow f:\theta \mapsto r\sin{\left( \theta + \alpha \right) } \\
+            f:\theta \mapsto a\sin\theta + b\cos\theta &\Leftrightarrow f:\theta \mapsto \sqrt{a^2 + b^2}\sin{\left( \theta + \tan^{-1}{\left( \frac{b}{a}\right) }\right) }
+        \end{align*}
+        \\\\
         % -- %
         Similarity, $r$ and $\alpha$ of the combined function $r\cos{(\theta + \alpha)}$ of $a\cos{\theta} - b\sin{\theta}$ can be given in terms of $a$ and $b$.
         \subparagraph{Expressing $r$ and $\alpha$ in terms of $a$ and $b$} $r$ and $\alpha$ can be calculated using $a$ and $b$:
@@ -633,6 +639,11 @@
         \begin{equation}
         \alpha = \tan^{-1}{\left( \frac{b}{a}\right) }
         \end{equation}
+        And therefore:
+        \begin{align*}
+        f:\theta \mapsto a\cos\theta - b\sin\theta &\Leftrightarrow f:\theta \mapsto r\cos{(\theta + \alpha)} \\
+        f:\theta \mapsto a\cos\theta - b\sin\theta &\Leftrightarrow f:\theta \mapsto \sqrt{a^2 + b^2}\cos{\left( \theta + \tan^{-1}{\left( \frac{b}{a}\right) }\right) }
+        \end{align*} \newpage
         % -- %
         \paragraph{Predicting the Amplitude, Phase Shift and Period Of Trigonometric Function Containing Both Cosine and Sine} Using the composite function found above, a function containing both sine and cosine can thus be combined into one and makes determining the amplitude, phase shift and period easier. The $r$ found above is known as the amplitude, while $\alpha$ is the phase shift.
         \subparagraph{Example 1} $f:\theta \mapsto 3\sin{\theta} + 4\cos{\theta}$ \\\\
@@ -654,7 +665,11 @@
 			&= \arctan{\frac{4}{3}} \\
 			(&= 53.1\degree [1.d.p]) 
 		\end{align*}
-		The period of the function is determined by the coefficient of the theta variable. Normally, i.e. when the coefficient is 1, the period is $2\pi$. That is, if the parameter of function $f$ becomes $2\theta$, the period becomes $\frac{2\pi}{2} = \pi$. As such, if the parameter supplied is $k\theta$, $k \in \mathbb{R}$, the period then becomes $\frac{2\pi}{k}$ \\
+        Which gives the composite function:
+        \begin{align*}
+            f:\theta \mapsto 3\sin{\theta} + 4\cos{\theta} \Leftrightarrow f:\theta \mapsto 5\sin{(\theta + 53.1\degree)}
+        \end{align*}
+		The period of the function is determined by the coefficient of the theta variable. Normally, i.e. when the coefficient is 1 (which is in fact 1 in this case), the period is $2\pi$. That is, if the parameter of function $f$ becomes $2\theta$, the period becomes $\frac{2\pi}{2} = \pi$. As such, if the parameter supplied is $k\theta$, $k \in \mathbb{R}$, the period then becomes $\frac{2\pi}{k}$. \\
 		\subparagraph{Example 2} $f:\theta \mapsto 3\sin{\theta} - 4\cos{\theta}$ \\\\
 		Equate $3\sin{\theta} - 4\cos{\theta}$ with $a\sin{\theta} + b\cos{\theta}$, giving:
 		\begin{align*}
@@ -674,6 +689,10 @@
 		&= \arctan{\frac{-4}{3}} \\
 		(&= -53.1\degree [1.d.p]) 
 		\end{align*}
+        Which gives the composite function:
+        \begin{align*}
+        f:\theta \mapsto 3\sin{\theta} - 4\cos{\theta} \Leftrightarrow f:\theta \mapsto 5\sin{(\theta - 53.1\degree)}
+        \end{align*}
         The period is the same situation as example 1. \\
         \subparagraph{Example 3} $f:\theta \mapsto 2\cos{\theta} - \sin{\theta}$ \\\\
         Equate $2\cos{\theta} - \sin{\theta}$ with $a\cos{\theta} - b\sin{\theta}$, giving:
@@ -694,6 +713,11 @@
         &= \arctan{\frac{1}{2}} \\
         (&= 26.6\degree [1.d.p]) 
         \end{align*}
+        Which gives the composite function:
+        \begin{align*}
+        f:\theta \mapsto 2\cos{\theta} - \sin{\theta} \Leftrightarrow f:\theta \mapsto \sqrt{5}\cos{(\theta + 26.6\degree)}
+        \end{align*}
+        The period is the same situation as that in Example 1.
         \subparagraph{Example 4} $f:\theta \mapsto \sqrt{5}\sin{\theta} + \sqrt{11}\cos{\theta}$ \\\\
         Equate $\sqrt{5}\sin{\theta} + \sqrt{11}\cos{\theta}$ with $a\sin{\theta} + b\cos{\theta}$, giving:
         \begin{align*}
@@ -715,7 +739,11 @@
         &= \arctan{\frac{\sqrt{11}}{\sqrt{5}}} \\
         (&= 56.0\degree [1.d.p]) 
         \end{align*}
-        
+        Which gives the composite function:
+        \begin{align*}
+        f:\theta \mapsto \sqrt{5}sin{\theta} + \sqrt{11}\cos{\theta} \Leftrightarrow f:\theta \mapsto 4\sin{(\theta + 56.0\degree)}
+        \end{align*}
+        The period is the same situation as that in Example 1.
         \newpage
         % -- %
         \section{Appendix}
